@@ -1,0 +1,17 @@
+.breadcrumbs{
+  display: flex;
+  align-items: center;
+  color: var(--grey);
+    .stepIcon{
+      width: 2rem;
+      height: 0.1rem;
+      background-color: var(--grey);
+      margin: 0 1.5rem;
+    }
+    a{
+      transition: .2s;
+        &:hover{
+          color: var(--purple);
+        }
+    }
+}

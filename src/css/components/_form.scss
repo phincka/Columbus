@@ -1,0 +1,103 @@
+.contact{
+  &__row{
+    margin-bottom: 1.9rem;
+    gap: 2.4rem;
+      &:last-child{
+        margin-bottom: 0;
+      }
+  }
+  .grid2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &__wrap{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 6rem;
+  }
+  &__left, &__right{
+    display: flex;
+    flex-direction: column;
+  }
+  &__single{
+    width: 100%;
+
+    position: relative;
+      &--label{
+        @include fontStyle(var(--black), 1.8rem, 400);
+        padding: 1.8rem 1.8rem;
+
+        
+        position: absolute;
+          span{
+            color: var(--orange);
+          }
+      }
+
+      &--input, &--textarea{
+        background-color: var(--white);
+        border: .1rem solid var(--white);
+        padding: 1.8rem 1.8rem;
+
+        width: 100%;
+        transition: .2s;
+          &::placeholder{
+            font-size: 0;
+          }
+          &:valid, &:invalid{
+            @include fontStyle(var(--black), 1.8rem, 400);
+          }
+          &:focus{
+            border-color: var(--orange);
+            color: var(--orange);
+          }
+          &::selection{
+            color: var(--orange);
+          }
+      }
+      &--textarea{
+        height: 12rem;
+        margin-bottom: 0;
+        resize: none;
+      }
+  }
+    
+  &--privacy{
+    @include fontStyle(var(--black), 1.4rem, 400);
+      & > label{
+        margin-bottom: 1rem;
+          &:last-child{
+            margin-bottom: 0;
+          }
+      }
+      label{
+        display: flex;
+      }
+      input{
+        width: 1.8rem;
+        height: 1.8rem;
+        margin-right: 1rem;
+        border: .1rem solid var(--white);
+        transition: .2s ease;
+          &:checked{
+            background-color: var(--white);
+          }
+      }
+      .wpcf7-list-item-label{
+        width: calc(100% - 2.8rem);
+      }
+      a{
+        text-decoration: underline;
+      }
+  }
+  &__bottom{
+    @include colStart;
+    align-items: flex-start;
+    margin-top: 2rem;
+  }
+  .button-1{
+    display: flex;
+    margin-left: auto;
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,50 @@
+<footer class="footer" id="footer">
+  <a class="footer--top" href="#top"><img src="{{asset('arrow_black.svg')}}" alt="arrow"></a>
+
+  <div class="footer__top">
+    <a rel="noopener" target="_blank" class="footer__top__branding" href="{{home_url()}}">
+      <img loading="lazy" class="footer__top__branding--img" src="{{options.logo_footer['url']}}" alt="{{options.logo_footer['alt']}}">
+    </a>
+
+    {% if footer %}
+      <nav class="footer__top__nav">
+        <ul class="menu">
+          {% for item in footer.items  %}
+            <li class="{{ item.classes|join(' ') }} txt-14">
+              <a href="{{ item.link }}">{{ item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+
+    {% if options.socialmedia %}
+      {% set single = options.socialmedia[0] %}
+      <a class="header__main__socialmedia" href="{{single.url}}">
+        <p class="header__main__socialmedia--text txt-14">znajdź nas</p>
+        <span class="header__main__socialmedia--icon">{{file_get_contents(single.icon)}}</span>
+      </a>
+    {% endif %}
+
+  </div>
+
+
+  <div class="footer__bottom">
+    <div class="footer__bottom__info">
+      <a class="footer__bottom--rightText txt-14" rel="noopener" rel="nofollow" target="_blank" href="{{home_url()}}">©{{date('Y')}}&nbsp;{{options.seo_title}}</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="footer__bottom__info--text txt-14 privacy" href="{{fn('get_privacy_policy_url')}}">{{fn('pll_e', 'privacy')}}</a>
+    </div>
+
+    <a class="footer__bottom--rightText txt-14" rel="noopener" rel="nofollow" target="_blank" href="https://www.websitestyle.pl/">{{fn('pll_e', 'ws_info')}}</a>
+  </div>
+
+  
+  {% include "/templates/partial/cookies.twig" %}
+
+  <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+    ':35729/livereload.js?snipver=1"></' + 'script>')
+  </script>
+</footer>
+
+

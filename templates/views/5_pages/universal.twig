@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+{% block content %}
+	
+<article class="s1_universal">
+  <header class="s1_universal__header">
+    <h1 class="s1_universal__header--title title-60">{{post.title}}</h1>
+  </header>
+  <div class="s1_universal--editor">
+    {{field.wysiwyg}}
+  </div>
+</article>
+
+
+{% endblock %}

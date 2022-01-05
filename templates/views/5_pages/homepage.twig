@@ -1,0 +1,132 @@
+{% extends "base.twig" %}
+{% block content %}
+
+
+<section class="s1_homepage">
+  <div class="s1_homepage__slider swiper-container">
+    <div class="swiper-wrapper">
+      {% for single in field.s1_repeat %}
+        {% for banner in field.s1_repeat %}
+          {% if banner.acf_fc_layout  == 'banner_1' %}
+            <div class="s1_homepage__banner banner_1 swiper-slide">
+              <div class="s1_homepage__banner__content">
+                <h1 class="s1_homepage__banner__content--title tit-35">{{banner.title}}</h1>
+                <img class="s1_homepage__banner__content--img" src="{{banner.logo.url}}" alt="{{banner.logo.alt}}">
+                <p class="s1_homepage__banner__content--text txt-20">{{banner.text}}</p>
+
+                <div class="s1_homepage__banner__content__buttons">
+                  {% if banner.button_1 %}
+                    <a class="btn-1" target="{{ banner.button_1.target}}" href="{{ banner.button_1.url}}">
+                      <span class="btn-1--text">{{ banner.button_1.title}}</span>
+                      <img class="btn-1--icon" src="{{asset('arrow.svg')}}" alt="arrow">
+                    </a> 
+                  {% endif %}
+
+                  {% if  banner.button_2 %}
+                    <a class="btn-1" target="{{ banner.button_2.target}}" href="{{ banner.button_2.url}}">
+                      <span class="btn-1--text">{{ banner.button_2.title}}</span>
+                      <img class="btn-1--icon" src="{{asset('arrow.svg')}}" alt="arrow">
+                    </a> 
+                  {% endif %}
+                </div>
+              </div>
+
+              <img class="s1_homepage__banner--img" src="{{banner.img.url}}" alt="{{banner.img.alt}}">
+            </div>
+          {% elseif banner.acf_fc_layout == 'banner_2' %}
+            <div class="s1_homepage__banner banner_2 swiper-slide">
+              <div class="s1_homepage__banner__content">
+                <h1 class="s1_homepage__banner__content--title tit-35">{{banner.title}}</h1>
+                <img class="s1_homepage__banner__content--img" src="{{banner.logo.url}}" alt="{{banner.logo.alt}}">
+                <p class="s1_homepage__banner__content--text txt-20">{{banner.text}}</p>
+
+                <div class="s1_homepage__banner__content__buttons">
+                  {% if banner.button_1 %}
+                    <a class="btn-1" target="{{ banner.button_1.target}}" href="{{ banner.button_1.url}}">
+                      <span class="btn-1--text">{{ banner.button_1.title}}</span>
+                      <img class="btn-1--icon" src="{{asset('arrow.svg')}}" alt="arrow">
+                    </a> 
+                  {% endif %}
+
+                  {% if  banner.button_2 %}
+                    <a class="btn-1" target="{{ banner.button_2.target}}" href="{{ banner.button_2.url}}">
+                      <span class="btn-1--text">{{ banner.button_2.title}}</span>
+                      <img class="btn-1--icon" src="{{asset('arrow.svg')}}" alt="arrow">
+                    </a> 
+                  {% endif %}
+                </div>          
+              </div>
+
+            {{fn('getVideo', banner.video)}}
+            </div>
+          {% else %}
+            <div class="s1_homepage__banner videoBanner swiper-slide">
+              {{fn('getVideo', banner.video)}}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="s1_homepage__controls">
+    <button class="next btn-1">
+      <span class="btn-1--text">następny</span>
+      <img class="btn-1--icon" src="{{asset('arrow.svg')}}" alt="arrow">
+    </button>
+    <button class="prev btn-1">
+      <span class="btn-1--text">poprzedni</span>
+      <img class="btn-1--icon" src="{{asset('arrow.svg')}}" alt="arrow">
+    </button>
+  </div>
+</section>
+
+
+<section class="s2_homepage">
+  <header class="s2_homepage__header">
+    <h2 class="s2_homepage__header--title tit-100">{{field.s2_title}}</h2>
+  </header>
+  
+
+  <div class="s2_homepage__grid">
+    <a href="#" class="s2_homepage__grid__single">
+      <img class="s2_homepage__grid__single--img" src="http://localhost/sushi/wp-content/uploads/2021/11/rolki-special-147.png" alt="">
+      <h3 class="s2_homepage__grid__single--title tit-25">Tempura roll</h3>
+    </a>
+  </div>  
+
+
+  <div class="s2_homepage__bottom">
+    {% if field.s2_button %}
+      <div class="s2_homepage__bottom__button">
+        <a class="btn-1" target="{{field.s2_button.target}}" href="{{field.s2_button.url}}">
+          <span class="btn-1--text">{{field.s2_button.title}}</span>
+          <img class="btn-1--icon" src="{{asset('arrow.svg')}}" alt="arrow">
+        </a> 
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+
+<section class="s3_homepage">
+  <img class="s3_homepage--img" src="{{field.s3_img.url}}" alt="{{field.s3_img.alt}}">
+
+  <div class="s3_homepage__content">
+    <h2 class="s3_homepage__content--title tit-35">{{field.s3_title}}</h2>
+    <p class="s3_homepage__content--text txt-20">{{field.s3_text}}</p>
+
+    <a class="btn-1" target="{{field.s3_button.target}}" href="{{field.s3_button.url}}">
+      <span class="btn-1--text">{{field.s3_button.title}}</span>
+      <img class="btn-1--icon" src="{{asset('arrow.svg')}}" alt="arrow">
+    </a> 
+  </div>
+</section>
+
+
+
+{% include "/templates/partial/our_premises.twig" %}
+{% endblock %}
+
+
+

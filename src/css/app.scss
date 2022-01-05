@@ -1,0 +1,51 @@
+
+/* Template variables */
+@import './variables';
+
+
+/* Libraries */
+@import './lib';
+
+
+/* Components */
+@import 'components/cookies';
+@import 'components/loader';
+@import 'components/banner';
+@import 'components/pageHeader';
+@import 'components/our_premises';
+@import 'components/form.scss';
+
+
+/* Views */
+@import './views/1_header/header';
+@import './views/1_header/rwd_header';
+  
+@import './views/2_footer/footer';
+@import './views/2_footer/rwd_footer';
+
+@import './views/3_privacy/privacy';
+@import './views/3_privacy/rwd_privacy';
+
+@import './views/homepage/homepage';
+@import './views/homepage/rwd_homepage';
+
+@import './views/sales/sales';
+@import './views/sales/rwd_sales';
+
+@import './views/contact/contact';
+@import './views/contact/rwd_contact';
+
+@import './views/about_us/about_us';
+@import './views/about_us/rwd_about_us';
+
+@import './views/products/products';
+@import './views/products/rwd_products';
+
+@import './views/gallery/gallery';
+@import './views/gallery/rwd_gallery';
+
+@import './views/catering/catering';
+@import './views/catering/rwd_catering';
+
+@import './views/realizations/realizations';
+@import './views/realizations/rwd_realizations';

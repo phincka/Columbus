@@ -1,0 +1,46 @@
+.pageHeader{
+  width: 176rem;
+  margin: -6.8rem auto 0;
+  padding: 4.4rem 8.1rem;
+  background-color: var(--blue);
+  border-radius: 1rem;
+  position: relative;   
+    &::before{
+      content: '';
+      width: 40.7rem;
+      height: 100%;
+      background: rgb(5,127,209);
+      background: linear-gradient(90deg, rgba(5,127,209,1) 0%, rgba(5,127,209,1) 15%, rgba(5,127,209,0) 100%);
+      position: absolute;
+      top: 0;
+      right: 49rem;
+      z-index: 2;
+    }
+
+    &--title{
+      position: relative;
+      z-index: 5;
+    }
+    
+    &--img{
+      width: 88rem;
+      height: 100%;
+      object-fit: cover;
+
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 0;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+  .pageHeader{
+ 
+  }
+}

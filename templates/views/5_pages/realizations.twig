@@ -1,0 +1,50 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/pageHeader.twig" %}
+
+
+<section class="s1_realizations">
+  <button data-btnTerm="00" class="button-2 btn-rel btn-active">
+    <span class="button-2--text">wszystkie</span>
+  </button>
+
+  {% for term in terms %}
+    <button data-btnTerm="{{term.term_id}}" class="button-2 btn-rel">
+      <span class="button-2--text">{{term.name}}</span>
+    </button>
+  {% endfor %}
+</section>
+
+
+{% for single in field.s1_repeat %}
+  <section class="s2_realizations">
+    <h2 class="s2_realizations--title title-60">{{single.title}}</h2>
+
+    <div class="s2_realizations__grid">
+      {% for item in single.repeat %}
+      {% set post = item.post %}
+      {% set terms = fn('get_the_terms', post.ID, 'realizations-category') %}
+
+        <div class="s2_realizations__grid__single single_realization" data-terms="{% for singleTerm in terms %}{{singleTerm.term_id}},{% endfor %}">
+          <div class="s2_realizations__grid__single__thumbnail">
+            <img class="s2_realizations__grid__single__thumbnail--img" src="{{get_the_post_thumbnail_url(post.ID)}}" alt="{{post.post_title}}">
+          </div>
+          
+          <div class="s2_realizations__grid__single__info text-18">
+            <p>{{get_field('country', post)}}</p>
+            <span>{{get_field('power', post)}}</span>
+          </div>
+
+          <h2 class="s2_realizations__grid__single--title">{{post.post_title}}</h2>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endfor %}
+
+
+
+
+{% include "/templates/partial/banner.twig" %}
+{% endblock %}

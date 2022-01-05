@@ -1,0 +1,88 @@
+.banner{
+  margin-top: 90rem;
+
+
+  position: relative;
+  z-index: 3;
+    &::after{
+      content: '';
+      width: 48.8rem;
+      height: 75.3rem;
+      background-image: url('../../assets/flower.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+    }
+    &::after{
+      top: -23.5rem;
+      left: -46.5rem;
+      transform: rotate(-41deg);
+    }
+
+    &__header{
+      @include colStart;
+      align-items: flex-end;
+
+      width: 160rem;
+      margin: 0 auto;
+        
+      margin-bottom: 8.2rem;
+      position: relative;
+
+        &::before{
+          content: '';
+          width: 100%;
+          height: .1rem;
+          background-color: var(--grey2);
+
+          position: absolute;
+          bottom: 0;
+          top: 0;
+          left: 0;
+          margin: auto 0;
+          z-index: 0;
+        }
+        &--title{
+          padding-left: 3.7rem;
+          position: relative;
+          z-index: 1;
+
+          font-family: lush, sans-serif;
+
+          padding-right: 4.8rem;
+          background-color: var(--black);
+        }
+    }
+    &__content{
+      width: 160rem;
+      margin: 0 auto;
+      
+      position: relative;
+      z-index: 11;
+    }
+    .acf-map{
+      width: 100%;
+      height: 78rem;
+      background-color: pink;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+  .banner{
+    padding: 0 2rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+      &__single{
+        @include colStart;
+        align-items: center;
+        border: none;
+        padding: 0;
+          &--title, &--text{
+            text-align: center;
+            padding-left: 0;
+          }
+      }
+  }
+}

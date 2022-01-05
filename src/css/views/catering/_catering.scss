@@ -1,0 +1,146 @@
+.s1_catering{
+  width: 144rem;
+  margin: 0 auto;
+  margin-top: 27.4rem;
+
+  position: relative;
+  z-index: 10;
+    &__nav{
+      @include verticalCenter;
+      justify-content: flex-end;
+
+      width: 100%;
+      margin-bottom: 13.4rem;
+        &--single{
+          margin-left: .73rem;
+            &:first-child{
+              margin-left: 0;
+            }
+        }
+    }
+
+    &__block{
+      @include flexLine;
+      align-items: flex-start;
+
+      padding: 4rem;
+      margin-bottom: 8.5rem;
+      border: .1rem solid var(--grey2);
+      position: relative;
+        &:last-child{
+          margin-bottom: 0;
+        }
+
+        &--img{
+          width: 68rem;
+          object-fit: contain;
+        }
+
+        &__content{
+          width: 60rem;
+          margin-top: 3.4rem;
+            &__header{
+              &--title{
+                margin-bottom: 4rem;
+              }
+              &--belt{
+                position: absolute;
+                top: -4.5rem;
+                z-index: 11;
+              }
+            }
+           
+
+            &__wysiwyg{
+              p, li{
+                font-size: 2rem;
+                line-height: 3.5rem;
+                font-weight: 300;
+                font-family: var(--compact);
+              }
+              ul{
+                list-style: none;
+                margin-left: 5.8rem;
+                  li{
+                    position: relative;
+                    margin-bottom: 1.6rem;
+                      &:last-child{
+                        margin-bottom: 0;
+                      }
+                      &::before{
+                        content: '';
+                        width: 3.5rem;
+                        height: 0.1rem;
+                        background-color: var(--grey2);
+
+                        position: absolute;
+                        top: 1.5rem;
+                        bottom: 0;
+                        left: -5.8rem;
+                      }
+                  }
+              }
+            }
+        }
+    }
+}
+
+.s2_catering{
+  @include colStart;
+
+  width: 144rem;
+  margin: 0 auto;
+  margin-top: 9.1rem;
+  margin-bottom: 8.7rem;
+  background-color: var(--grey2);
+
+  padding: 5.5rem 8rem 4.7rem;
+  overflow: hidden;
+
+  position: relative;
+  z-index: 10;
+    &::after{
+      content: '';
+      width: 75.3rem;
+      height: 48.8rem;
+      background-image: url('../../assets/flower-dark.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      opacity: .17;
+      top: -13.8rem;
+      right: -15.9rem;
+      transform: rotate(0);
+    }
+
+    &--title{
+      color: var(--black);
+      font-weight: 500;
+      font-family: var(--text);
+    }
+    &--tel{
+      @include verticalCenter;
+      margin-top: 2.6rem;
+        img{
+          width: 5.6rem;
+          height: 5.6rem;
+          object-fit: contain;
+          margin-right: 2.3rem;
+          margin-top: -1.4rem;
+        }
+        span{
+          font-size: 5.8rem;
+          color: var(--black);
+          font-weight: 300;
+          font-family: var(--text);
+        }
+    }
+}
+
+
+.s3_catering{
+  width: 144rem;
+  margin: 0 auto;
+  margin-top: 10rem;
+}

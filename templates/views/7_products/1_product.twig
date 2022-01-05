@@ -1,0 +1,108 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/pageHeader_products.twig" %}
+
+
+<section class="s1_product1">
+  <div id="bottom"></div>
+  <h2 class="s1_product1--title title-48">{{field.s1_title}}</h2>
+
+  <div class="s1_product1__content">
+    <p class="text-16">{{field.s1_text_l}}</p>
+    <p class="text-16">{{field.s1_text_r}}</p>
+  </div>
+</section>
+
+
+<section class="s2_product1 js-panel-toggle">
+  <header class="s2_product1__header">
+    <nav class="s2_product1__nav">
+      {% for item in field.s2_repeat %}
+      {% if loop.first %}
+        {% set activeClass = 'panel-toggle--active' %}
+      {% else %}
+        {% set activeClass = '' %}
+      {% endif %}
+      
+        <button data-target=".panel{{loop.index}}" class="s2_product1__nav__single panel-toggle {{activeClass}}">
+          <p class="text-13"><b>{{item.title}}</b></p>
+          <span class="text-13">{{item.subtitle}}</span>
+        </button>
+      {% endfor %}
+    </nav>
+  </header>
+
+
+  <div class="s2_product1__tabs"> 
+    {% for single in field.s2_repeat %}
+      {% if loop.first %}
+        {% set activeClass = 'panel--active' %}
+      {% else %}
+        {% set activeClass = '' %}
+      {% endif %}
+      <article class="s2_product1__tab panel{{loop.index}} panel {{activeClass}}">
+        <header class="s2_product1__tab__header">
+          <h2 class="title-24">{{single.mainTitle}}</h2>
+        
+          <div class="s2_product1__tab__header__gallery">
+            {% for item in single.gallery %}
+              <div class="s2_product1__tab__header__gallery__single">
+                <img class="s2_product1__tab__header__gallery__single--img" src="{{item.img.url}}" alt="{{item.img.alt}}">
+                <h3 class="s2_product1__tab__header__gallery__single--title text-16"><b>{{item.title}}</b></h3>
+              </div>
+            {% endfor %}           
+          </div>
+        </header>
+
+
+        <div class="s2_product1__tab__content">
+          <p class="s2_product1__tab__content--text text-16">{{single.text}}</p>
+          <h3 class="s2_product1__tab__content--title text-16"><b>{{single.table_title}}</b></h3>
+          <div class="s2_product1__tab__content__table text-13">
+            {% for row in single.table %}
+              <div class="s2_product1__tab__content__table__row"> 
+                <p class="s2_product1__tab__content__table__row--key">{{row.key}}</p>
+                <p class="s2_product1__tab__content__table__row--value"><b>{{row.value}}</b></p>
+              </div>                  
+            {% endfor %}
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+
+<section class="s3_product1">
+  <header class="s3_product1__header">
+    <h2 class="s3_product1__header--title title-48">{{field.s3_title}}</h2>
+    <p class="s3_product1__header--text text-16">{{field.s3_text}}</p>
+  </header>
+
+  <div class="s3_product1__content">
+    {% for single in field.s3_repeat %}
+      <div class="s3_product1__content__single">
+        <img class="s3_product1__content__single--img" src="{{single.img.url}}" alt="{{single.img.alt}}">
+      
+        <div class="s3_product1__content__single__content text-16">
+          <h3 class="s3_product1__content__single__content--title"><b>{{single.title}}</b></h3>
+          <p class="s3_product1__content__single__content--text">{{single.text}}</p>
+
+          {% if single.list %}
+            <ul class="s3_product1__content__single__content__list list">
+              {% for item in single.list %}
+                <li class="list--item">{{item.text}}</li>  
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+{% include "/templates/partial/bestProducts2.twig" %}
+
+{% endblock %}

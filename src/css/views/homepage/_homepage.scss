@@ -1,0 +1,336 @@
+.s1_homepage{
+  width: 100%;
+  position: relative;
+  
+  margin-top: 10.8rem;
+    &::after, &::before{
+      content: '';
+      width: 48.8rem;
+      height: 75.3rem;
+      background-image: url('../../assets/flower.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+    }
+    &::after{
+      top: 19.7rem;
+      left: -29.4rem;
+      transform: rotate(1deg);
+    }
+    &::before{
+      top: 10.5rem;
+      right: -29.9rem;
+      transform: rotate(178deg);
+    }
+
+
+    &__slider{
+      width: 160rem;
+        
+    }
+    &__controls{
+      width: 160rem;
+      margin: 0 auto;
+      position: relative;
+    }
+    .prev, .next{
+      position: absolute;
+      z-index: 10;
+      bottom: -2.5rem;
+    }
+    .swiper-button-disabled{
+      display: none;
+    }
+    .prev{
+      left: 0;
+
+      flex-direction: row-reverse;
+        img{
+          margin-left: 0;
+          margin-right: 2.7rem;
+          transform: rotate(180deg);
+        }
+    }
+    .next{
+      right: 0;
+    }
+
+    &__banner{
+      @include verticalCenter;
+      width: 100%;
+      position: relative;
+        &::before{
+          content: '';
+          width: calc(100% - 8.1rem);
+          height: 100%;
+          border: .1rem solid var(--grey2);
+
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+        }
+      &__content{
+        @include colStart;
+        width: 68rem;
+        padding: 7.2rem 0 7rem 7.9rem;
+          &--title{
+            font-weight: 500;
+          }
+          &--img{
+            width: 44rem;
+            height: 19rem;
+            object-fit: contain;
+
+            margin-top: 2.4rem;
+            margin-bottom: 3.1rem;
+          }
+          &--text{
+            font-weight: 300;
+          }
+          &__buttons{
+            display: flex;
+            margin-top: 4.1rem;
+              .btn-1{
+                margin-right: 2rem;
+              }
+          }
+      }
+
+      &--img, .wp-video{
+        position: absolute;
+        right: 1rem;
+      }
+      &--img{
+        width: 80rem;
+        height: 100%;
+        object-fit: contain;
+        bottom: 0;
+      }
+      .wp-video{
+        width: 80rem !important;
+      }
+
+      .wp-video{
+        .mejs-controls{
+          opacity: 1 !important;
+        }
+        &--active{
+          &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--grey);
+            opacity: .77;
+            z-index: 1;
+
+            transition: all .5s;
+          }
+
+          &:hover{
+            &::before{
+              opacity: 0;
+            }
+          }
+          .mejs-controls{
+            opacity: 0 !important;
+          }
+        }
+        .mejs-overlay-button{
+          width: 10rem !important;
+          height: 10rem !important;
+          background-size: contain !important;
+          background-position: center !important;
+          background-image: url('../../assets/play.svg') !important;
+        }
+        .mejs-controls{
+          display: none !important;
+        }
+      }
+    }
+
+    .banner_1{
+      .btn-1{
+        background-color: var(--orange);
+      }
+    }
+    .banner_2{
+      .btn-1{
+        background-color: var(--green);
+      }
+    }
+    .videoBanner{
+      padding: 4.3rem 0;
+        .wp-video{
+          width: calc(100% - 4.5rem) !important;
+          height: 54rem !important;
+          position: relative;
+
+          display: flex;
+          justify-content: flex-end;
+            &::before{
+              width: calc(100% - 4.5rem) !important;
+              right: 0;
+              left: auto;
+            }
+            #mep_1, .wp-video-shortcode{
+              width: calc(100% - 4.5rem) !important;
+              height: 100% !important; 
+            }
+        }
+    }
+}
+
+
+.s2_homepage{
+  width: 160rem;
+  margin: 0 auto;
+  margin-top: 8.4rem;
+
+  position: relative;
+    &__header{
+      @include colStart;
+      width: 100%;
+      margin-bottom: 8.2rem;
+      position: relative;
+
+        &::before{
+          content: '';
+          width: 100%;
+          height: .1rem;
+          background-color: var(--grey2);
+
+          position: absolute;
+          bottom: 0;
+          top: 0;
+          left: 0;
+          margin: auto 0;
+          z-index: 0;
+        }
+        &--title{
+          padding-right: 1.8rem;
+          position: relative;
+          z-index: 1;
+
+          font-family: lush, sans-serif;
+
+          padding-right: 4.8rem;
+          background-color: var(--black);
+        }
+    }
+    &__grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 3.7rem;
+        &__single{
+          width: 100%;
+          height: 43.8rem;
+          position: relative;
+          transition: .2s;
+          border: 1px solid transparent;
+            &--img{
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+
+              position: absolute;
+              top: 0;
+              bottom: 0;
+            }
+            &--title{
+              width: 100%;
+              text-align: center;
+
+              position: absolute;
+              bottom: 2.9rem;
+              left: 0;
+
+              
+            }
+
+            &:hover{
+              border-color: var(--grey2);
+            }
+        }
+    }
+
+    &__bottom{
+      @include flexLine('center');
+      @include colStart;
+      align-items: flex-end;
+
+      position: relative;
+      width: 100%;
+        &::before{
+          content: '';
+          width: 100%;
+          height: .1rem;
+          background-color: var(--grey2);
+
+          position: absolute;
+          bottom: 0;
+          top: 0;
+          left: 0;
+          margin: auto 0;
+          z-index: 0;
+        }
+        &__button{
+          background-color: var(--black);
+          padding-left: 4rem;
+          position: relative;
+          z-index: 1;
+        }
+    }
+}
+
+
+.s3_homepage{
+  @include verticalCenter;
+  width: 160rem;
+  margin: 0 auto;
+  margin-top: 13.1rem;
+  margin-bottom: 10.2rem;
+
+  padding-right: 16rem;
+  padding-left: 8rem;
+  position: relative;
+    &::after{
+      content: '';
+      width: 48.8rem;
+      height: 75.3rem;
+      background-image: url('../../assets/flower.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+    }
+    &::after{
+      top: -23.5rem;
+      right: -46.5rem;
+      transform: rotate(-41deg);
+    }
+    &--img{
+      width: 94.8rem;
+      object-fit: contain;
+    }
+
+    &__content{
+      @include colStart;
+      width: 64rem;
+      padding: 6.7rem 8rem 5.6rem;
+      background-color: var(--grey);
+      border: .1rem solid var(--grey2);
+
+      position: absolute;
+      right: 16rem;
+      margin-top: 6rem;
+        &--text{
+          margin-top: 4.4rem;
+          margin-bottom: 4.9rem;
+        }
+    }
+}

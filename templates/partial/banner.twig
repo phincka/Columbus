@@ -1,0 +1,42 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlJVhk0I-TfVLVvfSASEIbcVsVSSnxtPE"></script>
+
+<section class="banner">
+  <header class="banner__header">
+    <h2 class="banner__header--title tit-100">{{options.locals_title}}</h2>
+  </header>
+
+  <div class="banner__content">
+    <img src="" alt="">
+
+    <div class="premises__local">
+      <h3 class="premises__local--title tit-35">{{local.city}}</h3>
+      <p class="premises__local--text tit-25">{{local.street}}</p>
+
+      {% if local.mail %}
+        <a class="premises__local--contact" href="mailto:{{extract_email(local.mail)}}">
+          <img src="{{asset('mail.svg')}}" alt="mail">
+          <span class="tit-25">{{local.mail}}</span>
+        </a>
+      {% endif %}
+
+      {% if local.tel %}
+        <a class="premises__local--contact" href="tel:{{extract_phoneNumber(local.tel)}}">
+          <img src="{{asset('tel.svg')}}" alt="tel">
+          <span class="tit-25">{{local.tel}}</span>
+        </a>
+      {% endif %}
+    </div>
+
+    <img src="" alt="">
+  </div>
+
+  {% set location = local.map %}
+  {% if location %}
+    <div class="acf-map" data-zoom="{{location.zoom}}">
+      <div class="marker" data-lat="{{location.lat}}" data-lng="{{location.lng}}" data-marker="{{asset('marker.svg')}}"></div>
+    </div>
+  {% endif %}
+    <div class="acf-map" data-zoom="{{location.zoom}}">
+      <div class="marker" data-lat="{{location.lat}}" data-lng="{{location.lng}}" data-marker="{{asset('marker.svg')}}"></div>
+    </div>
+</section>

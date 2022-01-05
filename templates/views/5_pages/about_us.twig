@@ -1,0 +1,47 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/pageHeader.twig" %}
+
+<section class="s1_aboutUs">
+  <div class="s1_aboutUs__content">
+    <h2 class="s1_aboutUs__content--title tit-50">{{acf.s1_title}}</h2>
+    <p class="s1_aboutUs__content--text txt-14">{{acf.s1_text}}</p>
+  </div>
+
+  {% include "templates/partial/image.twig" with {
+    img: acf.s1_img,
+    class: 's1_aboutUs--img',
+  } %}
+</section>
+
+
+<section class="s2_aboutUs">
+  {% for single in acf.s2_repeat %}
+    <div class="s2_aboutUs__single">
+      {% include "templates/partial/image.twig" with {
+        img: single.img,
+        class: 's2_aboutUs__single--img',
+      } %}
+
+      <div class="s2_aboutUs__single__content">
+        <h2 class="s2_aboutUs__single__content--title tit-50">{{single.title}}</h2>
+        
+        <p class="s2_aboutUs__single__content--text txt-14">{{single.text}}</p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+
+<section class="s3_aboutUs">
+  
+</section>
+
+
+
+{% include "/templates/partial/our_premises.twig" %}
+{% endblock %}
+
+
+

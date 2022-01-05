@@ -1,0 +1,88 @@
+.pageHeaderBig{
+  @include colStart;
+
+  position: relative;
+  border-top: .1rem solid var(--orange);
+    &__header{
+      display: flex;
+      width: 100%;
+      height: 64.9rem;
+        &__content{
+          @include colStart;
+          width: 50%;
+          height: 100%;
+
+          padding: 19.3rem 15.4rem 19.4rem 12rem;
+            &--title{
+              &::before{
+                top: -8.8rem;
+                left: 0;
+              }
+            }
+            &--text{
+              margin-top: 1.6rem;
+              margin-bottom: 2.4rem;
+              font-weight: 500;
+            }
+        }
+
+        &--img{
+          width: 50%;
+          height: 100%;
+          object-fit: cover;
+        }
+    }
+    &__bottom{
+      width: 100%;
+      display: flex;
+        &__box{
+          @include colStart;
+          width: 50%;
+          padding: 10.4rem 11.5rem 9.2rem 12rem;
+            &:first-child{
+              background-color: var(--black);
+                h2, p, li{
+                  color: var(--white);
+                    b{
+                      color: var(--pcolor);
+                    }
+                }
+            }
+
+            &--title{
+              margin-bottom: 2.4rem;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+  .pageHeaderBig__header{
+    height: auto;
+    flex-direction: column-reverse;
+  }
+  .pageHeaderBig__header__content{
+    width: 100%;
+    padding: 10rem 2rem 4rem;
+    margin-top: 3rem;
+  }
+  .pageHeaderBig__header--img{
+    width: 100%;
+    // display: none;
+  }
+  .pageHeaderBig__header__content--thumbnail{
+    display: none;
+  }
+  .pageHeaderBig__header__content--logo{
+    width: 22rem;
+    margin-top: 4rem;
+  }
+  .pageHeaderBig__bottom{
+    flex-direction: column;
+      &__box{
+        width: 100%;
+        padding: 12rem 2rem 6rem 2rem;
+      }
+  }
+}

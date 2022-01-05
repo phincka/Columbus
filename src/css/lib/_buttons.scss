@@ -1,0 +1,59 @@
+.btn-1{
+  @include verticalCenter;
+  padding: 1.6rem 2.3rem 1.6rem 2.8rem;
+  background-color: var(--pcolor);
+
+    &--text{
+      @include fontStyle(var(--white), 1.4rem, 400);
+      text-transform: uppercase;
+      letter-spacing: .14rem;
+    }
+    &--icon{
+      margin-left: 2.7rem;
+    }
+
+    &:hover{
+       
+    }
+}
+
+
+.btn-2{
+  padding: 1.6rem 2rem;
+  background-color: var(--pcolor);
+  transition: .2s;
+  
+    &--text{
+      @include fontStyle(var(--white), 1.4rem, 400);
+      text-transform: uppercase;
+      letter-spacing: .14rem;
+
+      position: relative;
+      z-index: 1;
+      transition: .2s;
+    }
+    &:hover{
+      background-color: var(--orange);
+    }
+}
+
+.btn-3{
+  @include verticalCenter;
+  padding: 1.1rem 2.2rem;
+  background-color: var(--grey);
+  border: 1px solid var(--grey2);
+    &--text{
+      @include fontStyle(var(--white), 2rem, 300);
+    }
+
+    &:hover{
+       
+    }
+}
+
+@media screen and (max-width: 800px) {
+  .button-1, .button-2{
+    font-size: 1.4rem;
+    padding: 1.3rem 3.2rem;
+  }
+}

@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/pageHeader_products.twig" %}
+
+
+<section class="taxonomy_products bestProducts">
+  <div id="bottom"></div>
+
+  {% if childrens %}
+    {% for child in childrens %}
+    {{child|print_r}}
+      <a href="{{fn('get_term_link', child.term_id)}}" class="bestProducts__single">
+        <img class="bestProducts__single--img" src="{{fn('get_field', 'thumbnail', child)}}" alt="{{child.name}}">
+
+        <h3 class="bestProducts__single--title title-32">{{child.name}}</h3>
+        <p class="bestProducts__single--text text-18">{{child.description}}</p>
+      </a>  
+    {% endfor %}
+  {% endif %}
+  
+  {% for product in products %}
+    <a href="{{fn('get_permalink', product.ID)}}" class="bestProducts__single">
+      <img class="bestProducts__single--img" src="{{fn('get_field', 'thumbnail', product.id).url}}" alt="{{product.title}}">
+
+      <h3 class="bestProducts__single--title title-32">{{product.title}}</h3>
+      <p class="bestProducts__single--text text-18">{{fn('get_field', 'text', product.id)}}</p>
+    </a>    
+  {% endfor %}
+
+</section>
+
+
+{% include "/templates/partial/banner.twig" %}
+
+{% endblock %}

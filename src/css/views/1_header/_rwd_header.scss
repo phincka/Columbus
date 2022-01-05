@@ -1,0 +1,113 @@
+@media screen and (max-width: 800px) {
+  .header{
+    width: 100%;
+    position: fixed !important;
+    background-color: var(--white);
+    padding-bottom: 0;
+    margin-top: 0;
+    z-index: 90;
+
+      &__mobileBelt{
+        @include flexLine('center'); 
+
+        width: 100%;
+        padding: 1rem 2rem;
+        background-color: var(--white);
+          &__branding{
+            font-size: 0;
+            width: 20rem;
+              img{
+                mix-blend-mode: darken;
+              }
+          }
+      }
+
+      &__main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 98;
+        top: 0;
+        left: 0;
+
+        padding: 0 2rem;
+
+        background-color: var(--white);
+
+        transition: transform .3s .1s ease-in-out; 
+        transform: translateX(105vw);
+        // transform: translateX(0);
+
+        overflow: hidden;
+          &--subtitle{
+            display: none;
+          }
+          &--active{
+            transform: translateX(0);
+          }
+          &__branding{
+            display: none;
+          }
+          &__socialMedia{
+            align-self: center;
+
+            margin-top: 6rem;
+            position: relative;
+            top: auto;
+            right: auto;
+
+            flex-direction: row;
+              &--single{
+                margin-bottom: 0;
+                margin-left: 2rem;
+                  &:first-child{
+                    margin-left: 0;
+                  }
+              }
+          }
+         
+          &__nav{
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 0;
+            transform: translateX(0);
+              .menu{
+                flex-direction: column;
+                margin-bottom: 3.2rem;
+                margin-right: 0;
+                  .menu-item{
+                    margin-left: 0;
+                    margin-bottom: 2.4rem;
+                    font-size: 2.4rem;
+
+                    position: relative;
+                      &:last-child{
+                        margin-bottom: 0;
+                        margin-left: 0;
+                      }
+                  }
+                  .active{
+                    &::before{
+                      height: 0.1rem;
+                    }
+                  }
+              }
+          }
+      }
+  }
+  
+  
+  .menuButton, .menuButtonExit{
+    display: block !important;   
+  }
+
+  .menuButton--active{
+    z-index: 9999999;
+  }
+}

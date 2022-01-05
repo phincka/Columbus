@@ -1,0 +1,50 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/pageHeader_products.twig" %}
+
+
+<section class="product">
+  <div id="bottom"></div>
+  <div class="product--wysiwyg">{{field.wysiwyg}}</div>
+</section>
+
+
+<section class="product_products bestProducts">
+  {# {% for single in options.bestproducts %}
+    <div class="bestProducts__single">
+      <img class="bestProducts__single--img" src="" alt="">
+
+      <h3 class="bestProducts__single--title title-32">{{single.product.title}}</h3>
+      <p class="bestProducts__single--text text-18"></p>
+    </div>    
+  {% endfor %} #}
+
+  <div class="bestProducts__single">
+    <img class="bestProducts__single--img" src="http://localhost/zbus/wp-content/uploads/2021/09/33worker-welding-in-a-factory-CAK7CQ8-1.jpg" alt="">
+
+    <h3 class="bestProducts__single--title title-32">Nazwa Produktu</h3>
+    <p class="bestProducts__single--text text-16">Druty proszkowe służą do napawania w trybie automatycznym i zrobotyzowanym.</p>
+  </div> 
+  <div class="bestProducts__single">
+    <img class="bestProducts__single--img" src="http://localhost/zbus/wp-content/uploads/2021/09/33worker-welding-in-a-factory-CAK7CQ8-1.jpg" alt="">
+
+    <h3 class="bestProducts__single--title title-32">Nazwa Produktu</h3>
+    <p class="bestProducts__single--text text-16">Druty proszkowe służą do napawania w trybie automatycznym i zrobotyzowanym.</p>
+  </div> 
+  <div class="bestProducts__single">
+    <img class="bestProducts__single--img" src="http://localhost/zbus/wp-content/uploads/2021/09/33worker-welding-in-a-factory-CAK7CQ8-1.jpg" alt="">
+
+    <h3 class="bestProducts__single--title title-32">Nazwa Produktu</h3>
+    <p class="bestProducts__single--text text-16">Druty proszkowe służą do napawania w trybie automatycznym i zrobotyzowanym.</p>
+  </div> 
+  <div class="bestProducts__single">
+    <img class="bestProducts__single--img" src="http://localhost/zbus/wp-content/uploads/2021/09/33worker-welding-in-a-factory-CAK7CQ8-1.jpg" alt="">
+
+    <h3 class="bestProducts__single--title title-32">Nazwa Produktu</h3>
+    <p class="bestProducts__single--text text-16">Druty proszkowe służą do napawania w trybie automatycznym i zrobotyzowanym.</p>
+  </div> 
+</section>
+
+
+{% endblock %}

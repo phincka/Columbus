@@ -1,0 +1,55 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/pageHeader.twig" %}
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlJVhk0I-TfVLVvfSASEIbcVsVSSnxtPE"></script>
+
+<section class="s1_contact">
+  <nav class="s1_contact__nav">
+    {% for item in field.s1_repeat %}
+      <a class="s1_contact__nav--single btn-3" href="#{{item.id}}">
+        <span class="btn-3--text">{{item.title}}</span>
+      </a>
+    {% endfor %}
+  </nav>
+
+  <div class="s1_contact__premises">
+    {% for local in field.s1_repeat %}
+      <div class="s1_contact__premises__single"> 
+        <div class="s1_contact__premises__single--belt" id="{{local.id}}"></div>
+
+        <div class="s1_contact__premises__single__content">
+          <h3 class="premises__local--title tit-35">{{local.title}}</h3>
+          <p class="premises__local--text tit-25">{{local.street}}</p>
+
+          {% if local.mail %}
+            <a class="premises__local--contact" href="mailto:{{extract_email(local.mail)}}">
+              <img src="{{asset('mail.svg')}}" alt="mail">
+              <span class="tit-25">{{local.mail}}</span>
+            </a>
+          {% endif %}
+
+          {% if local.tel %}
+            <a class="premises__local--contact" href="tel:{{extract_phoneNumber(local.tel)}}">
+              <img src="{{asset('tel.svg')}}" alt="tel">
+              <span class="tit-25">{{local.tel}}</span>
+            </a>
+          {% endif %}
+        </div>
+
+        {% set location = local.map %}
+        {% if location %}
+          <div class="acf-map" data-zoom="{{location.zoom}}">
+            <div class="marker" data-lat="{{location.lat}}" data-lng="{{location.lng}}" data-marker="{{asset('marker.svg')}}"></div>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+{% endblock %}
+
+
