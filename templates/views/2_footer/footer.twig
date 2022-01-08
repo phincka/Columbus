@@ -1,41 +1,79 @@
 <footer class="footer" id="footer">
-  <a class="footer--top" href="#top"><img src="{{asset('arrow_black.svg')}}" alt="arrow"></a>
+  <a class="footer--top" href="#top"><img src="{{asset('arrow_white.svg')}}" alt="arrow"></a>
 
   <div class="footer__top">
-    <a rel="noopener" target="_blank" class="footer__top__branding" href="{{home_url()}}">
-      <img loading="lazy" class="footer__top__branding--img" src="{{options.logo_footer['url']}}" alt="{{options.logo_footer['alt']}}">
-    </a>
+    <div class="footer__top__wrap">
+      <a rel="noopener" target="_blank" class="footer__top__branding" href="{{home_url()}}">
+        <img loading="lazy" class="footer__top__branding--img" src="{{options.logo['url']}}" alt="{{options.logo['alt']}}">
+      </a>
 
-    {% if footer %}
-      <nav class="footer__top__nav">
-        <ul class="menu">
-          {% for item in footer.items  %}
-            <li class="{{ item.classes|join(' ') }} txt-14">
-              <a href="{{ item.link }}">{{ item.title }}</a>
+      {% if footer %}
+        <nav class="footer__top__nav">
+          <ul class="menu">
+            {% for item in footer.items  %}
+              <li class="{{ item.classes|join(' ') }} txt-14">
+                <a href="{{ item.link }}">{{ item.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endif %}
+
+      {% if options.socialmedia %}
+        <div class="header__main__socialmedia">
+          {% for single in  options.socialmedia %}
+            <a class="header__main__socialmedia__single" href="{{single.url}}">
+              <span class="header__main__socialmedia__single--icon">{{file_get_contents(single.icon)}}</span>
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+
+    <div class="header__main__right">
+      <p class="txt-16">Informacje i rezerwacje</p>
+      {% if options.contact_tel %}
+        <ul class="header__main__right__tel">
+          {% for single in options.contact_tel %}
+            <li class="header__main__right__tel--single txt-22">
+              <a href="tel:{{extract_phoneNumber(single.tel)}}">{{single.tel}}</a>
             </li>
           {% endfor %}
         </ul>
-      </nav>
-    {% endif %}
-
-    {% if options.socialmedia %}
-      {% set single = options.socialmedia[0] %}
-      <a class="header__main__socialmedia" href="{{single.url}}">
-        <p class="header__main__socialmedia--text txt-14">znajdź nas</p>
-        <span class="header__main__socialmedia--icon">{{file_get_contents(single.icon)}}</span>
-      </a>
-    {% endif %}
-
+      {% endif %}
+      
+      <a class="header__main__right--mail txt-22" href="mailto:{{extract_email(options.contact_mail)}}">{{options.contact_mail}}</a>
+    </div>
   </div>
 
 
   <div class="footer__bottom">
-    <div class="footer__bottom__info">
-      <a class="footer__bottom--rightText txt-14" rel="noopener" rel="nofollow" target="_blank" href="{{home_url()}}">©{{date('Y')}}&nbsp;{{options.seo_title}}</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;
-      <a class="footer__bottom__info--text txt-14 privacy" href="{{fn('get_privacy_policy_url')}}">{{fn('pll_e', 'privacy')}}</a>
+    <div class="footer__bottom__content">
+      {% for single in options.contact_address %}
+        <div class="footer__bottom__content__single">
+          <h3 class="footer__bottom__content__single--title txt-14"><b>{{single.title}}</b></h3>
+          <p class="footer__bottom__content__single--text txt-14">{{single.text}}</p>
+        </div>
+      {% endfor %}
+
+
+      <div class="footer__bottom__content__single">
+        <p class="footer__bottom__content--text txt-14">
+          {{options.contact_text}}
+        </p>
+      </div>
     </div>
 
-    <a class="footer__bottom--rightText txt-14" rel="noopener" rel="nofollow" target="_blank" href="https://www.websitestyle.pl/">{{fn('pll_e', 'ws_info')}}</a>
+
+    <div class="footer__bottom__info">
+      <p>
+        <a class="footer__bottom__info--text txt-14" rel="noopener" rel="nofollow" target="_blank" href="{{home_url()}}">©{{date('Y')}}&nbsp;{{options.seo_title}}</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="footer__bottom__info--text txt-14 privacy" href="{{fn('get_privacy_policy_url')}}">{{fn('pll_e', 'privacy')}}</a>
+       </p>
+      <a class="footer__bottom__info--text txt-14" rel="noopener" rel="nofollow" target="_blank" href="/">{{fn('pll_e', 'ws_info')}}</a>
+    </div>
+
   </div>
 
   

@@ -1,0 +1,50 @@
+.catalog{
+  @include end;
+
+  width: 160rem;
+  margin: 0 auto;
+  margin-top: 16.3rem;
+  margin-bottom: 20.7rem;
+  padding: 6rem 12.7rem 6rem 6rem;
+
+  border-radius: 1rem;
+  background: linear-gradient(#0bbd27 0%, #0ab324 75.72%, #078c19 100%);
+
+  position: relative;
+    &--img{
+      width: 62.4rem;
+      transform: rotate(-8deg);
+
+      position: absolute;
+      top: -7.1rem;
+      left: 5.8rem;
+        img{
+          object-fit: contain
+        }
+    }
+    &__content{
+      @include colStart;
+      width: 60rem;
+        &--title{
+          margin-bottom: 0.9rem;
+          line-height: 6rem;
+        }
+        &--text{
+          color: var(--white);
+        }
+        .btn-1{
+          margin-top: 2.6rem;
+          padding: 1rem;
+          span{
+            font-size: 1.2rem;
+          }
+        }
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+  .catalog{
+   
+  }
+}

@@ -1,31 +1,32 @@
 .footer{
   @include colStart;
-  padding: 5.6rem;
-  padding-top: 6.3rem;
-  margin-top: 18.9rem;
+  padding-top: 7rem;
+  padding-bottom: 7.2rem;
   position: relative;
+  background-color: var(--white);
     &--top{
-      width: 8rem;
-      height: 8rem;
+      width: 7.1rem;
+      height: 7.1rem;
       padding: 2.4rem;
       transition: .2s;
-      background-color: var(--grey2);
+      background-color: var(--black2);
+      padding: 2.3rem;
+      border-radius: 100%;
 
       position: absolute;
-      right: 0;
-      top: -8rem;
+      right: 4.4rem;
+      bottom: 4.6rem;
         img{
           width: 100%;
           height: 100%;
           object-fit: contain;
 
-          transform: rotate(-90deg);
           transition: .2s;
         }
 
         &:hover{
           img{
-            transform: rotate(-90deg) translateX(.4rem);
+            transform: translateY(-.4rem);
           }
         }
     }
@@ -35,11 +36,14 @@
       margin: 0 auto;
     }
     &__top{ 
-      @include verticalCenter;
+      @include flexLine;
+        &__wrap{
+          @include verticalCenter;
+        }
         &__branding{
           display: block;
-          width: 23.5rem;
-          height: 5.7rem;
+          width: 16rem;
+          height: 6.1rem;
             &--img{
               width: 100%;
               height: 100%;
@@ -48,62 +52,86 @@
         }
 
         &__nav{
-          margin-left: 16.6rem;
+          margin-left: 8.9rem;
             & >.menu{
-              @include verticalCenter;
+              display: flex;
+              align-items: center;
+
               list-style: none;
-                & >.menu-item{
-                  color: var(--white);
-                  margin-left: 4.8rem;
-                  text-transform: uppercase;
-                  transition: .2s;
+                & > .menu-item{
+                  @include center;
+                  margin-left: 6.7rem;
 
-                  position: relative;
-                    &::before{
-                      content: '•';
+                  transition: all .2s;
+                  position: relative; 
+                    &::after{
+                      content: '';
+                      width: .8rem;
+                      height: .8rem;
+                      border-radius: 100%;
 
+                      background-color: var(--pcolor);
                       position: absolute;
-                      left: -2.8rem;
-                    }
-                    &:first-child{
-                      margin-left: 0;
-                        &::before{
-                          display: none;
-                        }
+                      top: 0;
+                      bottom: 0;
+                      left: -3.1rem;
+                      margin: auto 0;
                     }
                     &:hover{
                       color: var(--pcolor);
-                        &::before{
-                          color: var(--white);
+                    }
+                    &:first-child{
+                      margin-left: 0;
+                        &::after{
+                          display: none;
                         }
                     }
                 }
-                .current_page_item{
-                  color: var(--pcolor);
-                   &::before{
-                      color: var(--white);
-                    }
-                }
 
-                .menu-item-has-children{
-                  display: none;
-                }
+                & >.active{
+                  color: var(--pcolor);
+                }           
             }
         }
 
         .header__main__socialmedia{
-          margin-left: auto;
+          margin-left: 20.3rem;
         }
     }
 
     &__bottom{
-      @include flexLine('center');
-      margin-top: 7rem;
-        .txt-14{
-          color: var(--white);
+      @include flexLine;
+      margin-top: 1.8em;
+        &__content{
+          display: flex;
+            &__single{
+              width: 24rem;
+                &--title{
+                  b{
+                    color: var(--black) !important;
+                  }
+                }
+                &--text{
+                  font-weight: 300;
+                }
+                b{
+                  color: var(--pcolor);
+                }
+                span{
+                  color: var(--blue);
+                }
+                &:nth-child(3){
+                  width: 56rem;
+                    p{
+                      font-weight: 700;
+                    }
+                }
+            }
         }
         &__info{
-          @include verticalCenter;
+          @include colStart;
+          justify-content: flex-end;
+          align-items: flex-end;
         }
     } 
 }

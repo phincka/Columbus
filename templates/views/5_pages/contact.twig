@@ -3,53 +3,53 @@
 
 {% include "/templates/partial/pageHeader.twig" %}
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlJVhk0I-TfVLVvfSASEIbcVsVSSnxtPE"></script>
 
 <section class="s1_contact">
-  <nav class="s1_contact__nav">
-    {% for item in field.s1_repeat %}
-      <a class="s1_contact__nav--single btn-3" href="#{{item.id}}">
-        <span class="btn-3--text">{{item.title}}</span>
-      </a>
-    {% endfor %}
-  </nav>
-
-  <div class="s1_contact__premises">
-    {% for local in field.s1_repeat %}
-      <div class="s1_contact__premises__single"> 
-        <div class="s1_contact__premises__single--belt" id="{{local.id}}"></div>
-
-        <div class="s1_contact__premises__single__content">
-          <h3 class="premises__local--title tit-35">{{local.title}}</h3>
-          <p class="premises__local--text tit-25">{{local.street}}</p>
-
-          {% if local.mail %}
-            <a class="premises__local--contact" href="mailto:{{extract_email(local.mail)}}">
-              <img src="{{asset('mail.svg')}}" alt="mail">
-              <span class="tit-25">{{local.mail}}</span>
-            </a>
-          {% endif %}
-
-          {% if local.tel %}
-            <a class="premises__local--contact" href="tel:{{extract_phoneNumber(local.tel)}}">
-              <img src="{{asset('tel.svg')}}" alt="tel">
-              <span class="tit-25">{{local.tel}}</span>
-            </a>
-          {% endif %}
+  <div class="s1_contact__content">
+    <div class="s1_contact__content__top">
+      {% for single in options.contact_address %}
+        <div class="footer__bottom__content__single">
+          <h3 class="footer__bottom__content__single--title txt-14"><b>{{single.title}}</b></h3>
+          <p class="footer__bottom__content__single--text txt-14">{{single.text}}</p>
         </div>
+      {% endfor %}
+    </div>
 
-        {% set location = local.map %}
-        {% if location %}
-          <div class="acf-map" data-zoom="{{location.zoom}}">
-            <div class="marker" data-lat="{{location.lat}}" data-lng="{{location.lng}}" data-marker="{{asset('marker.svg')}}"></div>
-          </div>
-        {% endif %}
-      </div>
-    {% endfor %}
+    <div class="header__main__right">
+      <p class="txt-16">Informacje i rezerwacje</p>
+      {% if options.contact_tel %}
+        <ul class="header__main__right__tel">
+          {% for single in options.contact_tel %}
+            <li class="header__main__right__tel--single txt-22">
+              <a href="tel:{{extract_phoneNumber(single.tel)}}">{{single.tel}}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      
+      <a class="header__main__right--mail txt-22" href="mailto:{{extract_email(options.contact_mail)}}">{{options.contact_mail}}</a>
+    </div>
+
+    <div class="footer__bottom__content__single">
+      <p class="footer__bottom__content--text txt-14">{{options.contact_text}}</p>
+    </div>  
+  </div>
+
+  <div class="s1_contact__form">
+    {% if acf.s1_form %}
+      {{ fn('do_shortcode', '[contact-form-7 id="' ~ acf.s1_form.ID  ~ '" title="' ~ acf.s1_form.post_title ~ '"]') }}
+    {% endif %}
   </div>
 </section>
 
 
+<section class="s2_contact">
+  <iframe 
+    class="s2_contact--map"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2320.462633859281!2d18.561908816399477!3d54.43712020014801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd0a942629c287%3A0xf88f57113804b0ab!2sTadeusza%20Ko%C5%9Bciuszki%2052%2F1%2C%2081-703%20Sopot!5e0!3m2!1spl!2spl!4v1641664884657!5m2!1spl!2spl" 
+    allowfullscreen="" 
+    loading="lazy">
+  </iframe>
+</section>
+
 {% endblock %}
-
-

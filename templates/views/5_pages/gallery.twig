@@ -5,16 +5,13 @@
 
 
 <section class="s1_gallery gallery">
-  {% for single in field.s1_repeat %}
-    <div class="s1_gallery__gallery gallery">
-      {% for item in single.gallery %}
-        <a data-lbxp class="s1_gallery__gallery__single" href="{{item.url}}" style="background-image: url('{{item.url}}')"></a>
-      {% endfor %}
-    </div>
+  {% for item in acf.s1_gallery %}
+    <a data-lbxp class="s1_gallery__single" href="{{item.url}}">
+      <img class="s1_gallery__single--img" src="{{item.url}}" alt="{{item.alt}}">
+    </a>
   {% endfor %}
 </section>
 
 
 
-{% include "/templates/partial/our_premises.twig" %}
 {% endblock %}

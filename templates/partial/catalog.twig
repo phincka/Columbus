@@ -1,0 +1,17 @@
+<section class="catalog">
+  {% include "templates/partial/image.twig" with {
+    img: img,
+    class: 'catalog--img',
+  } %}
+
+  <div class="catalog__content">
+    <h2 class="catalog__content--title tit-50">{{title}}</h2>
+    <p class="catalog__content--text txt-14">{{text}}</p>
+  
+    {% if button %}
+      <a class="btn-1" target="{{ button.target}}" href="{{ button.url}}">
+        <span class="btn-1--text">{{ button.title}}</span>
+      </a> 
+    {% endif %}
+  </div>
+</section>

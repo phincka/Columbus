@@ -25,6 +25,11 @@
   line-height: 3.5rem;
 }
 
+.txt-16{
+  @include fontStyle(var(--black), 1.6rem, 300);
+  line-height: 3.5rem;
+}
+
 .txt-14{
   @include fontStyle(var(--black), 1.4rem, 400);
   line-height: 2.4rem;

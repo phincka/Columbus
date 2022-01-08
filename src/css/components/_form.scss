@@ -1,20 +1,16 @@
 .contact{
   &__row{
-    margin-bottom: 1.9rem;
-    gap: 2.4rem;
-      &:last-child{
-        margin-bottom: 0;
-      }
+    margin-bottom: 1.3rem;
+    &:last-child{
+      margin-bottom: 0;
+    }
   }
   .grid2{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
   }
-  &__wrap{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 6rem;
-  }
+  
   &__left, &__right{
     display: flex;
     flex-direction: column;
@@ -24,46 +20,37 @@
 
     position: relative;
       &--label{
-        @include fontStyle(var(--black), 1.8rem, 400);
-        padding: 1.8rem 1.8rem;
-
-        
         position: absolute;
-          span{
-            color: var(--orange);
-          }
+        z-index: -99;
+        opacity: 0;
       }
 
       &--input, &--textarea{
+        @include fontStyle(var(--black3), 1.4rem, 500);
+
         background-color: var(--white);
-        border: .1rem solid var(--white);
-        padding: 1.8rem 1.8rem;
+        padding: 2.8rem 4.5rem;
+        border-radius: 1rem;
 
         width: 100%;
         transition: .2s;
-          &::placeholder{
-            font-size: 0;
-          }
-          &:valid, &:invalid{
-            @include fontStyle(var(--black), 1.8rem, 400);
-          }
           &:focus{
-            border-color: var(--orange);
-            color: var(--orange);
+            border-color: var(--pcolor);
+            color: var(--pcolor);
           }
           &::selection{
-            color: var(--orange);
+            color: var(--pcolor);
           }
       }
       &--textarea{
-        height: 12rem;
-        margin-bottom: 0;
+        height: 19.5rem;
         resize: none;
       }
   }
     
   &--privacy{
-    @include fontStyle(var(--black), 1.4rem, 400);
+    @include fontStyle(var(--black), 1.2rem, 400);
+    line-height: 2rem;
       & > label{
         margin-bottom: 1rem;
           &:last-child{
@@ -74,30 +61,32 @@
         display: flex;
       }
       input{
-        width: 1.8rem;
-        height: 1.8rem;
-        margin-right: 1rem;
-        border: .1rem solid var(--white);
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: .9rem;
+        border: .1rem solid var(--grey3);
         transition: .2s ease;
           &:checked{
-            background-color: var(--white);
+            background-color: var(--pcolor);
+            border-color: var(--pcolor);
           }
       }
       .wpcf7-list-item-label{
-        width: calc(100% - 2.8rem);
+        width: calc(100% - 2.4rem);
       }
       a{
-        text-decoration: underline;
+        transition: .2s;
+          &:hover{
+            color: var(--pcolor);
+          }
       }
   }
   &__bottom{
-    @include colStart;
-    align-items: flex-start;
-    margin-top: 2rem;
+    @include flexLine;
+    margin-top: 2.2rem;
   }
   .button-1{
     display: flex;
     margin-left: auto;
-    margin-top: 2rem;
   }
 }

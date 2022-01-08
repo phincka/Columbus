@@ -1,89 +1,68 @@
 .s1_gallery{
-  @include colStart;
   width: 160rem;
   margin: 0 auto;
-  margin-top: 46.6rem;
-  margin-bottom: 12.3rem;
-  
+  margin-top: 10rem;
+  margin-bottom: 10.4rem;
 
-  position: relative;
-  z-index: 10;
-    &__gallery{
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+
+    &__single{
       width: 100%;
-      height: 116rem;
+      height: 50rem;
+      background-color: var(--white);
+      border-radius: 1rem;
+      padding: 2.5rem 3rem;
 
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      grid-column-gap: 2rem;
-      grid-row-gap: 1.2rem;
-      margin-bottom: 1.2rem;
-        &:last-child{
-          margin-bottom: 0;
+      position: relative;
+        &::before, &::after{
+          content: '';
+          position: absolute;
+          transition: .2s;
+          opacity: 0;
+        }
+        &::before{
+          width: 100%;
+          height: 100%;
+          background-color: #078c19;
+          box-shadow: 0px 0px 5rem rgba(0, 0, 0, 0.15);
+          border-radius: 1rem;
+
+          top: 0;
+          left: 0;
+          z-index: 1;
         }
 
-      &__single{
-        @include center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        &::after{
+          content: '';
+          width: 3.4rem;
+          height: 3.4rem;
 
-        position: relative;
+          background-image: url('../../assets/search.svg');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+
+          inset: 0;
+          margin: auto;
+          z-index: 2;
+        }
+
+        &--img{
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        &:hover{
           &::before{
-            content: '';
-            width: 100%;
-            height: 100%;
-            background-color: var(--pcolor);
-            opacity: 0;
-            
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            transition: .2s;
+            opacity: 0.7;
           }
           &::after{
-            content: '';
-            width: 4.1rem;
-            height: 4.1rem;
-            background-image: url('../../assets/search.svg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0;
-
-            position: absolute;
-            z-index: 2;
-            transition: .2s;
+            opacity: 1;
           }
-
-          &:hover{
-            &::after{
-              opacity: 1;
-            }
-            &::before{
-              opacity: .7;
-            }
-          }
-          
-          &:nth-child(1){
-            grid-area: 1 / 1 / 2 / 2;
-          }
-          &:nth-child(2){
-            grid-area: 1 / 2 / 3 / 3;
-          }
-          &:nth-child(3){
-            grid-area: 1 / 3 / 2 / 4;
-          }
-          &:nth-child(4){
-            grid-area: 2 / 1 / 4 / 2;
-          }
-          &:nth-child(5){
-            grid-area: 3 / 2 / 4 / 3;
-          }
-          &:nth-child(6){
-            grid-area: 2 / 3 / 4 / 4;
-          }
-      }
+        }
     }
 }
