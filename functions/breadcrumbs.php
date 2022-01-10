@@ -11,7 +11,7 @@ function the_breadcrumb() {
     echo '<div class="breadcrumbs text-16">';
 
 
-    if (is_tax('products-category')) {
+    if (is_tax('trips-category')) {
         $term = get_term_by("slug", get_query_var("term"), get_query_var("taxonomy") );
         $tmpTerm = $term;
         $tmpCrumbs = array();
@@ -29,16 +29,16 @@ function the_breadcrumb() {
         echo '<a class="current" href="' . get_term_link($tmpTerm, get_query_var('taxonomy')) . '">' . $term->name . '</a>';
 
         $term_id = $term->term_id;
-        $taxonomy_name = 'products-category';
+        $taxonomy_name = 'trips-category';
         $termchildren = get_term_children( $term_id, $taxonomy_name );
     }
 
     
-    if ( get_post_type() == 'products' && is_single()) {
+    if ( get_post_type() == 'trips' && is_single()) {
         $obj = get_queried_object();
-        $terms = wp_get_post_terms(  $obj->ID , 'products-category', array( 'orderby' => 'parent', 'order' => 'DESC' ) );
+        $terms = wp_get_post_terms(  $obj->ID , 'trips-category', array( 'orderby' => 'parent', 'order' => 'DESC' ) );
 
-        $term = get_term_by("slug", $terms[0]->name, 'products-category' );
+        $term = get_term_by("slug", $terms[0]->name, 'trips-category' );
         $tmpTerm = $term;
         $tmpCrumbs = array();
 

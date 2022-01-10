@@ -9,7 +9,7 @@ require(__DIR__ . '/functions/include-scripts.php'); //! Enqueue scripts && styl
 // require(__DIR__ . '/functions/ajax_handlers.php'); //! Ajax functions 
 
 require(__DIR__ . '/functions/custom-post-types.php'); //! Register post type
-// require(__DIR__ . '/functions/breadcrumbs.php'); //! Breadcrumbs function
+require(__DIR__ . '/functions/breadcrumbs.php'); //! Breadcrumbs function
 // require(__DIR__ . '/functions/pagination.php'); //! Pagination function
 require(__DIR__ . '/functions/menu.php'); //! Register menus
 

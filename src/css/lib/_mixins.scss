@@ -105,14 +105,13 @@
       list-style: none;
       margin-left: 1.5rem;
         li{
-          line-height: 3.3rem;
-          margin-bottom: .2rem;  
           position: relative;
             &::before{
               content: '•';
-              @include fontStyle(inherit, 2.7rem, 500);
+              @include fontStyle($specialColor, 2rem, 500);
 
               position: absolute;
+              top: -.2rem;
               left: -1.5rem;
             }
         }

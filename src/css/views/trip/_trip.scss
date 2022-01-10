@@ -1,0 +1,122 @@
+.s1_trip{
+  width: 160rem;
+  margin: 2.5rem auto 17.6rem;
+
+  display: flex;
+  gap: 3.8rem;
+
+  position: relative;
+    &__gallery{
+      width: 76.1rem;
+      height: 62rem;
+      background-color: pink;
+
+      position: sticky;
+      top: 2.5rem;
+    }
+
+    &__content{
+      width: calc(100% - 76.1rem);
+        .breadcrumbs{
+          display: flex;
+        }
+        .tripCard{
+          padding: 2.1rem 4rem 4rem 3.6rem;
+          background-color: var(--white);
+          border-radius: 1rem;
+          margin-top: 2.8rem;
+            h2{
+              color: var(--blue);
+              margin-bottom: 2.5rem;
+            }
+
+            &__info{
+              @include flexLine('center');
+              margin-top: 4.1rem;
+              margin-bottom: 5.3rem;
+
+              padding: 1.8rem 0;
+              border-top: .1rem solid var(--blue2);
+              border-bottom: .1rem solid var(--blue2);
+                &__content{
+                  @include verticalCenter;
+                  gap: 10.4rem;
+                    &__single{
+                      @include verticalCenter;
+                        &--title{
+                          font-weight: 500;
+                        }
+                        &--value{
+                          font-size: 1.7rem;
+                          font-weight: 700;
+                          color: var(--blue);
+                        }
+                        &--special{
+                          font-size: 2.5rem;
+                          font-weight: 700;
+                          color: var(--blue);
+
+                          margin-left: .5rem;
+                        }
+                        .pirceDisabled{
+                          color: var(--grey);
+                          text-decoration: line-through;
+                        }
+                    }
+                }
+
+              }
+
+
+              &__repeat{
+                  &__single{
+                    margin-bottom: 5.3rem;
+                      &:last-child{
+                        margin-bottom: 0;
+                      }
+                      &__list{
+                        &__single{
+                          display: grid;
+                          grid-template-columns: 10.9rem 1fr;
+                          margin-bottom: -.1rem;
+                            &--no, &--text{
+                              border: .1rem solid var(--blue2);
+                              padding: 1.5rem 1.8rem;
+                            }
+                            &--no{
+                              font-weight: 500;
+                              margin-right: -.1rem;
+                            }
+                        }
+                      }
+
+                      &--wysiwyg{
+                        @include wysiwyg(1.4rem, var(--pcolor));
+                      }
+                  }
+              }
+        }
+
+        &__form{
+          margin-top: 3.3rem;
+          background-color: var(--blue);
+          border-radius: 1rem;
+          padding: 4.5rem 3.7rem;
+            h2{
+              color: var(--white);
+              margin-bottom: 3.5rem;
+            }
+
+            .contact__single--input, .contact__single--textarea{
+              background-color: #298ED2;
+              color: var(--white);
+                &::placeholder{
+                  color: var(--white);
+                }
+            }
+            .contact--privacy{
+              color: var(--white);
+            }
+        }
+    }
+}
