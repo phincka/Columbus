@@ -1,10 +1,16 @@
 
 <section class="banner">
+  {% if img %}
+    {% include "templates/partial/image.twig" with {
+      img: img,
+      class: 'banner--img',
+    } %}
+  {% endif %}
   <h2 class="banner--title tit-50">{{title}}</h2>
 
   {% if button %}
-      <a class="btn-1" target="{{ button.target}}" href="{{ button.url}}">
-        <span class="btn-1--text">{{ button.title}}</span>
-      </a> 
-    {% endif %}
+    <a class="btn-1" target="{{ button.target}}" href="{{ button.url}}">
+      <span class="btn-1--text">{{ button.title}}</span>
+    </a> 
+  {% endif %}
 </section>

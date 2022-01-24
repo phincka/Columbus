@@ -1,0 +1,21 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/pageHeader.twig" %}
+
+<section class="s1_trips">
+  <div class="s1_trips__filters">
+    {% include "/templates/partial/banner.twig" with {'title': acf.baner_title, 'button': acf.baner_button} %}
+  </div>
+
+  <div class="s1_trips__list">
+    {% for single in posts %}
+      {% include "/templates/partial/trip.twig" with {'trip': single} %}
+    {% endfor %}
+
+    {% include 'templates/partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+  </div>
+
+</section>
+
+{% endblock %}

@@ -11,9 +11,10 @@
 @import 'components/cookies';
 @import 'components/loader';
 @import 'components/banner';
+@import 'components/trip';
 @import 'components/pageHeader';
 @import 'components/catalog';
-@import 'components/our_premises';
+@import 'components/opinions';
 @import 'components/form.scss';
 
 
@@ -41,6 +42,9 @@
 
 @import './views/trip/trip';
 @import './views/trip/rwd_trip';
+
+@import './views/trips/trips';
+@import './views/trips/rwd_trips';
 
 @import './views/gallery/gallery';
 @import './views/gallery/rwd_gallery';

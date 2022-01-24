@@ -5,10 +5,27 @@
   <h1 class="pageHeader--title tit-50">{{post.post_title}}</h1>
 </header> 
 
-
 <section class="s1_trip">
   <div class="s1_trip__gallery">
-  
+    <div class="swiper-container productGallery-top">
+      <div class="swiper-wrapper">
+        {% for single in acf.gallery %}
+          <a data-fslightbox="gallery" href="{{single.url}}" class="swiper-slide">
+            <img src="{{single.url}}" alt="{{single.alt}}">
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="swiper-container productGallery-bottom">
+      <div class="swiper-wrapper">
+        {% for single in acf.gallery %}
+          <div class="swiper-slide" >
+            <div class="swiper-slide-inner" style="background-image:url({{single.sizes.thumbnail}})"></div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 
 
@@ -78,6 +95,31 @@
       {{ fn('do_shortcode', '[contact-form-7 id="5" title="Kontakt"]') }}
     </div>
   </div>
+
+  
+</section>
+
+<section class="reviews">
+  <div class="reviews__addNew">
+    <h2 class="reviews__addNew--title tit-50">Dodaj opinię</h2>
+    <p class="reviews__addNew--text txt-22">Opinia dotycząca: <br><b>{{post.title}}</b></p>
+    {{fn('do_shortcode', '[reviews]')}}
+  </div>
+
+  {% if opinions %}
+    <div class="reviews__list">
+      <header class="reviews__list__header">
+        <h2 class="tit-50">Opinie klientów</h2>
+        <p class="txt-22">{{post.title}}</p>
+      </header>
+
+      <div class="reviews__list__slider">
+        {% for opinion in opinions %}
+          {% include "/templates/partial/single_opinion.twig" with {'opinion': opinion} %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
 </section>
 
 {% endblock %}

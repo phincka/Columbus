@@ -8,7 +8,17 @@ $context = Timber::context();
 
 $timber_post = new Timber\Post();
 $context['post'] = $timber_post;
-// $context['field'] = get_fields();
+
+$args2 = array(
+  'post_type' => 'trips',
+  'status'    => 'approve',
+  'orderby' => 'rand',
+  'order' => 'ASC',
+  'number' => '3',
+);
+$opinions = get_comments( $args2 );
+
+$context['opinions'] = $opinions;
 
 
 

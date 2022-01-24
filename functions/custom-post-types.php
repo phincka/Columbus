@@ -33,9 +33,3 @@ function postTypes()
 
 }
 add_action('init', 'postTypes', 0);
-
-
-?>
-
-
-

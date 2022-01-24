@@ -37,6 +37,10 @@
 {% include "/templates/partial/banner.twig" with {'title': acf.s3_title, 'button': acf.s3_button} %}
 {% include "/templates/partial/catalog.twig" with {'img': acf.s4_img, 'title': acf.s4_title, 'text': acf.s4_text, 'button': acf.s4_button} %}
 
+{% if opinions %}
+  {% include "/templates/partial/opinions.twig" with {'opinions': opinions} %}
+{% endif %}
+
 {% endblock %}
 
 

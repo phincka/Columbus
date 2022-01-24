@@ -51,5 +51,4 @@ function categoryFilter() {
 	
 	die(1);
 }
-?>
 

@@ -7,7 +7,3 @@
   pll_register_string('cookies_text', 'cookies_text');
   pll_register_string('cookies_button', 'cookies_button');
 });
-
-
-?>
-

@@ -54,6 +54,3 @@ function my_acf_init() {
 }
 
 add_action('acf/init', 'my_acf_init');
-
-
-?>

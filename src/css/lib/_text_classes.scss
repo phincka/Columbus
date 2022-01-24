@@ -1,12 +1,11 @@
+.tit-70{
+  @include fontStyle(var(--white), 7rem, 700);
+  line-height: 8rem;
+}
 .tit-50{
   @include fontStyle(var(--white), 5rem, 700);
   line-height: 8rem;
 }
-
-
-
-
-
 
 
 
@@ -35,7 +34,10 @@
   line-height: 2.4rem;
 }
 
-
+.txt-12{
+  @include fontStyle(var(--black), 1.2rem, 500);
+  line-height: 2rem;
+}
 
 
 .list{

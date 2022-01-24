@@ -188,6 +188,3 @@ function extract_email($email){
 function extract_phoneNumber($phoneNo){
     return preg_replace('/[^.(+)|0-9]/', '', $phoneNo);
 }
-
-
-?>

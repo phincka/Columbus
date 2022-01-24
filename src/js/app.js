@@ -16,7 +16,7 @@ import AjaxProductLoad from './components/ajaxProductLoad'
 // new FromValidations().init()
 new Menu().init()
 // new PageLoader().loader()
-// new SwiperSliders().init()
+new SwiperSliders().init()
 // new GoogleMaps().init()
 // new RealizationsToggle().init()
 // new Video().init()
@@ -47,3 +47,7 @@ if (document.querySelector('.gallery')) {
 // });
 
 
+document.querySelector('#comment').placeholder = "Napisz swoją opinię"
+document.querySelector('#author').placeholder = "Imię / Nazwisko"
+document.querySelector('#email').placeholder = "E-mail"
+document.querySelector('#submit').value = "Opublikuj"

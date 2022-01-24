@@ -9,18 +9,34 @@ $context = Timber::context();
 
 $timber_post = new Timber\Post();
 $context['post'] = $timber_post;
-$context['field'] = get_fields();
 
-function getVideo($videoUrl){
-  // Get the Video Fields
-  $attr =  array(
-    'mp4'      => $videoUrl,
-    'preload'  => 'auto'
-  );
 
-  // Display the Shortcode
-  return wp_video_shortcode(  $attr );
-}
+$args = array(
+  'post_type' => 'trips',
+  'post_status' => 'publish',
+  'posts_per_page' => 8,
+  'orderby' => 'date',
+  'order'=>'asc',
+); 
+$context['posts'] = new Timber\PostQuery($args);
+
+
+$args2 = array(
+  'post_type' => 'trips',
+  'status'    => 'approve',
+  'orderby' => 'rand',
+  'order' => 'ASC',
+  'number' => '3',
+);
+$opinions = get_comments( $args2 );
+
+$context['opinions'] = $opinions;
+
+// prr($opinions);
+
+// 157
+
+
 
 Timber::render( array( 
   'templates/views/5_pages/homepage.twig',

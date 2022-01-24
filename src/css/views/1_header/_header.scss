@@ -4,6 +4,7 @@
 .header{
   width: 100%;
   z-index: 90;
+  padding-top: 3.4rem;
   padding-bottom: 11.1rem;
   background-color: var(--white);
     &__mobileBelt{
@@ -14,7 +15,6 @@
 
       width: 160rem;
       margin: 0 auto;
-      margin-top: 6.5rem;
         &__left{
           @include verticalCenter;
         }

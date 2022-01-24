@@ -1,0 +1,15 @@
+<article class="single_opinion">
+  <div class="single_opinion--rating review-rating">
+    {{fn('ic_ic_rev_rating', opinion.comment_ID)}}
+  </div>
+  <h3 class="single_opinion--title txt-22"><b>{{fn('get_the_title', opinion.comment_post_ID)}}</b></h3>
+  <h4 class="single_opinion--term">Wycieczki szkolne</h4>
+
+  <img class="single_opinion--img" src="{{asset('quote.svg')}}" alt="img">
+  <p class="txt-14">{{opinion.comment_content}}</p>
+
+  <div class="single_opinion--author txt-14"> 
+    <p><b>{{opinion.comment_author}}</b></p>
+    <span>{{fn('get_comment_date', 'd/m/Y', opinion.comment_ID)}}</span>
+  </div>
+</article>

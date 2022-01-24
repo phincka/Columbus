@@ -1,6 +1,6 @@
 <?php
 /*
-* Template Name: Aktualności
+* Template Name: Wycieczki
 * @package ths
 */
 
@@ -18,14 +18,12 @@ if ( get_query_var('paged') ) {
 $paged = 1;
 }
 $args = array(
-  'post_type' => 'post',
+  'post_type' => 'trips',
   'post_status' => 'publish',
-  'posts_per_page' => -1,
+  'posts_per_page' => 8,
   'orderby' => 'date',
   'order'=>'asc',
-
-  'posts_per_page' => 12,
-  'paged' => $paged
+  'paged' => $paged,
 ); 
 $context['posts'] = new Timber\PostQuery($args);
 
@@ -42,7 +40,7 @@ $context['categories'] = $categories;
 
 
 Timber::render( array( 
-  'templates/template_blog.twig',
+  'templates/views/6_trips/trips.twig',
   'page.twig'
 ), $context );
 

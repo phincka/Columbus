@@ -1,19 +1,21 @@
 .btn-1{
   @include verticalCenter;
-  padding: 1.6rem 2.3rem 1.6rem 2.8rem;
+  padding: 1rem 2rem;
   background-color: var(--pcolor);
-
+  border: 2px solid var(--pcolor);
+  border-radius: 10rem;
+  transition: .2s;
     &--text{
-      @include fontStyle(var(--white), 1.4rem, 400);
+      @include fontStyle(var(--white), 1.2rem, 500);
       text-transform: uppercase;
-      letter-spacing: .14rem;
-    }
-    &--icon{
-      margin-left: 2.7rem;
+      transition: .2s;
     }
 
     &:hover{
-       
+      background-color: transparent;
+        .btn-1--text{
+          color: var(--pcolor);
+        }
     }
 }
 
