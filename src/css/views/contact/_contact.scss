@@ -7,19 +7,22 @@
     &__content{
       width: calc(100% - 80rem);
       padding-right: 16rem;
+      margin-top: 2rem;
         &__top{
           display: flex;
+          gap: 8.4rem;
         }
         .header__main__right{
           align-items: flex-start;
 
-          margin-top: 6.6rem;
-          margin-bottom: 6.5rem;
+          margin-top: 5.3rem;
+          margin-bottom: 6.1rem;
         }
     }
     
     &__form{
       width: 80rem;
+      transform: translateX(-7.6rem);
     }
 }
 

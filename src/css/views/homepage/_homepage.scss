@@ -71,14 +71,17 @@
             &--text{
               font-size: 1.6rem;
             }
+            &:hover{
+              background-color: #078C19;
+              border-color: #078C19;
+            }
         }
     }
 }
 
 .s2_homepage{
   width: 160rem;
-  margin: 0 auto;
-  margin-top: 8.2rem;
+  margin: 8.2rem auto 9.2rem;
 
   position: relative;
     &__header{
@@ -95,10 +98,10 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 4rem;
 
-      margin-bottom: 8.5rem;
         .single_trip_ver{
+          @include colStart;
+
           width: 100%;
-          min-height: 50rem;
           padding: 3rem;
           border-radius: 1rem;
           background-color: var(--white);
@@ -108,20 +111,103 @@
             &:hover{
               box-shadow: 0 0 5rem rgba(0, 0, 0, 0.15);
             }
+            
+            &--title{
+              width: 100%;
+              line-height: 3rem;
+            }
+
+            &__tax{
+              font-size: 1.2rem;
+              color: var(--grey);
+            }
+
+            &--text{
+              margin-top: 2.1rem;
+            }
+
             &--img{
               width: 100%;
               height: 18.3rem;
               object-fit: cover;
               border-radius: .5rem;
-            }
-            &--title{
-              width: 100%;
+
+              margin-top: 2.1rem;
             }
 
+            &__info{
+              display: flex;
+              margin-top: 1.9rem;
+              margin-bottom: 2.1rem;
+                .trip__info__content__single .bottomWrap{
+                  margin-top: 0;
+                }
+                &__single{
+                  margin-right: 4.2rem;
+                  position: relative;
+                    &::after{
+                      content: '';
+                      width: .3rem;
+                      height: .3rem;
+                      border-radius: 100%;
 
+                      background-color: var(--grey);
+                      position: absolute;
+                      top: 1.1rem;
+                      right: -2.2rem;
+                    }
+                    &:last-child{
+                      margin-left: 0;
+                        &::after{
+                          display: none;
+                        }
+                    }
+                }
+            }
             
+            .btn-1{
+              margin-left: auto;
+              margin-top: auto;
+
+              padding: 1rem 1.8rem;
+                .btn-1--text{
+                  font-size: 1.2rem;
+                }
+                &:hover{
+                  background-color: #078C19;
+                  border-color: #078C19;
+                }
+            }
         }
     }
+
+    &__categories{
+      @include center;
+      flex-direction: column;
+      margin-top: 10.8rem;
+        &--title{
+          text-align: center;
+          margin-bottom: 2.8rem;
+            span{
+              color: var(--blue);
+            }
+        }
+        &__wrap{
+          @include center;
+          max-width: 90rem;
+          flex-wrap: wrap;
+          gap: 1rem;
+            .btn-1{
+              background-color: var(--blue);
+              border-color: var(--blue);
+              padding: 1.6rem 2rem;
+                &:hover{
+                  background-color: var(--pcolor);
+                  border-color: var(--pcolor);
+                }
+            }
+        }
+    } 
 
     &__bottom{
       @include flexLine('center');

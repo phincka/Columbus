@@ -50,12 +50,12 @@
 
         &__content{
           @include colStart;
+          justify-content: center;
           width: calc(100% - 69.5rem);
           padding-left: 8rem;
-          padding-top: 5.5rem;
             &--title{
               color: var(--blue);
-              margin-bottom: 3.7rem;
+              margin-bottom: 1.4rem;
             }
             &--text{
               b{

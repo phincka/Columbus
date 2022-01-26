@@ -34,7 +34,6 @@
 
     <div class="tripCard">
       <h2 class="txt-16"><b>Opis wycieczki</b></h2>
-      <p class="txt-14"><b>{{acf.text_title}}</b></p>
       <p class="txt-14">{{acf.text}}</p>
 
       <div class="tripCard__info">
@@ -55,10 +54,12 @@
           </div>
         </div>
 
-        <a class="tripCard__info__button btn-1" href="">
-          <span class="btn-1--icon">{{the_svg('pdf-white')}}</span>
-          <span class="btn-1--text">pobierz ofertę (pdf)</span>
-        </a>
+        {% if acf.offer %}
+          <a class="tripCard__info__button btn-1" href="{{acf.offer}}">
+            <span class="btn-1--icon">{{the_svg('pdf-white')}}</span>
+            <span class="btn-1--text">pobierz ofertę (pdf)</span>
+          </a>
+        {% endif %}
       </div>
 
 
@@ -66,7 +67,7 @@
         {% for single in acf.felx_content %}
           {% if single.acf_fc_layout  == 'tour_plan' %}
             <div class="tripCard__repeat__single">
-              <h2 class="tripCard__repeat__single--title txt-16"><b>{{single.title}}</b></h2>
+              <h2 class="tripCard__repeat__single--title txt-16"><b>PLAN WYCIECZKI</b></h2>
                 
               <div class="tripCard__repeat__single__list">
                 {% for item in single.days %}
@@ -89,7 +90,7 @@
       </div>
     </div>
 
-    <div class="s1_trip__content__form">
+    <div class="s1_trip__content__form" data-tripTitle="{{post.post_title}}">
       <h2 class="txt-16"><b>ZAPYTAJ O WYCIECZKĘ</b></h2>
 
       {{ fn('do_shortcode', '[contact-form-7 id="5" title="Kontakt"]') }}
@@ -113,11 +114,16 @@
         <p class="txt-22">{{post.title}}</p>
       </header>
 
-      <div class="reviews__list__slider">
-        {% for opinion in opinions %}
-          {% include "/templates/partial/single_opinion.twig" with {'opinion': opinion} %}
-        {% endfor %}
+      <div class="reviews__list__slider swiper-container">
+        <div class="swiper-wrapper">
+          {% for opinion in opinions %}
+            <div class="swiper-slide">
+              {% include "/templates/partial/single_opinion.twig" with {'opinion': opinion} %}
+            </div>
+          {% endfor %}
+        </div>
       </div>
+      <div class="swiper-scrollbar"></div>
     </div>
   {% endif %}
 </section>

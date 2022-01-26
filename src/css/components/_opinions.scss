@@ -3,25 +3,10 @@
   margin: 0 auto 13.4rem;
      &__header{
         @include flexLine('center');
-        margin-bottom: 8.4rem;
+        margin-bottom: 7.4rem;
           h2{
             color: var(--black);
           }
-          .btn-1{
-            padding: 2.1rem 2.8rem;
-            background-color: var(--blue);
-            border-color: var(--blue);
-              &--text{
-                font-size: 1.6rem;
-              }
-              &:hover{
-                background-color: transparent;
-                  .btn-1--text{
-                    color: var(--blue);
-                  }
-              }
-          }
-         
     }
 
 
@@ -44,13 +29,17 @@
     &--rating{
       span{
         color: #FFC107;
-        font-size: 3.5rem !important;
+        font-size: 4rem !important;
         width: auto !important;
         height: auto !important;
+          &::before{
+            line-height: 0 !important;
+            vertical-align: unset !important;
+          }
       }
     }
     &--title{
-      margin-top: 1.4rem;
+      margin-top: .7rem;
       margin-bottom: 0.5rem;
     }
     &--term{
@@ -65,19 +54,38 @@
       width: 100%;
       height: 2.1rem;
       object-fit: contain;
-      margin-top: 3.6rem;
-      margin-bottom: 2.7rem;
+      margin-top: 5.3rem;
+      margin-bottom: 2.5rem;
     }
 
     &--author{
       @include verticalCenter;
-      margin-top: 2.6rem;
+      margin-top: 1.8rem;
         span{
-          margin-left: .6rem;
+          margin-left: 2.2rem;
           color: var(--grey);
         }
     }
 }
 
 @media screen and (max-width: 800px) {
+  .opinions{
+    width: 100%;
+    margin-bottom: 6rem;
+    padding: 0 2rem;
+      &__header{
+        flex-direction: column;
+          h2{
+            margin-bottom: 1.8rem;
+          }
+      }
+      &__grid{
+        grid-template-columns: 1fr;
+        gap: 2.4rem;
+      }
+  }
+
+  .single_opinion{
+    padding: 2.8rem;
+  }
 }

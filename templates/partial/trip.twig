@@ -1,6 +1,6 @@
 <section class="trip">
-  <img class="trip--img" src="{{get_the_post_thumbnail_url(trip.ID)}}" alt="post_thumbnail">
-  
+  <img class="trip--img" src="{{get_field('gallery')[0].url}}" alt="{{get_field('gallery')[0].alt}}">
+
   <div class="trip__content">
     <h2 class="trip__content--title txt-22">{{trip.post_title}}</h2>
     <p class="trip__content--text txt-14">
@@ -11,6 +11,30 @@
       {% endif %}
     </p>
 
+    <div class="trip__info desktop-hide">
+      <div class="trip__info__content">
+        <div class="trip__info__content__single">
+          <p class="topWrap">
+            <span class="trip__info__content__single--title txt-14">Ilość dni:&nbsp;</span>
+            <span class="trip__info__content__single--value">{{trip.days}}</span>
+          </p>
+        </div>
+
+        <div class="trip__info__content__single">
+          <div class="bottomWrap">
+            <span class="trip__info__content__single--title txt-14">Cena:&nbsp;</span>
+            {% if trip.price_2 %}
+              <span class="trip__info__content__single--value pirceDisabled txt-14">{{trip.price}}</span>
+            {% else %}
+              <span class="trip__info__content__single--value txt-14">{{trip.price}}</span>
+            {% endif %}
+          </div>
+          <span class="trip__info__content__single--special">{{trip.price_2}}</span>
+        </div>
+      </div>
+    </div>
+
+
     {% if get_permalink(trip.ID) %}
       <a class="btn-1" href="{{get_permalink(trip.ID)}}">
         <span class="btn-1--text">sprawdź ofertę</span>
@@ -18,7 +42,7 @@
     {% endif %}
   </div>
 
-  <div class="trip__info">
+  <div class="trip__info mobile-hide">
     <div class="trip__info__content">
       <div class="trip__info__content__single">
         <p class="topWrap">

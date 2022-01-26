@@ -29,12 +29,16 @@ $args2 = array(
   'number' => '3',
 );
 $opinions = get_comments( $args2 );
-
 $context['opinions'] = $opinions;
 
-// prr($opinions);
+$taxArgs = array(
+  'taxonomy' => 'trips-category',
+  'parent' => 0,
+  'hide_empty' => false,
+);
+$context['terms'] = get_terms($taxArgs);
 
-// 157
+
 
 
 

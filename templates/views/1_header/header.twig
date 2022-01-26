@@ -3,7 +3,7 @@
 	<!-- START LOADER HTML -->
 	<div class="fullpage-loader">
 		<div class="fullpage-loader__logo">
-			<img loading="lazy" src="{{asset('favicon.svg')}}" alt="load">
+			<img loading="lazy" src="{{options.logo['url']}}" alt="load">
 		</div>
 	</div>
 	<!-- END LOADER HTML -->
@@ -34,12 +34,30 @@
 				
 				<nav class="header__main__nav">  
 					<ul class="menu">
+						{# <img class="desktop-hide sub-menu-close" src="{{asset('close.png')}}" alt="close"> #}
 						{% for item in menu.items %}
 							<li class="{{ item.classes|join(' ') }} txt-14">
 								{% if item.link %}
 									<a href="{{ item.link }}">
 										{{ item.title }}
 									</a>
+								{% endif %}
+
+								{% if item.children %}
+									<ul class="sub-menu">
+										<div class="sub-menu__color">
+											<div class="sub-menu__wrap">
+												{% for child in item.children %}
+													<li class="menu__subMenu--item text-13 {{child.classes|join(' ') }}">
+														<a href="{{child.link}}">
+															<p>{{child.title}}</p>
+															<img src="{{get_field('img', 'trips-category_' ~ child.object_id).url}}">
+														</a>
+													</li>	
+												{% endfor %}
+											</div>
+										</div>
+									</ul>
 								{% endif %}
 							</li>
 						{% endfor %}

@@ -1,111 +1,36 @@
 @media screen and (max-width: 800px) {
+  .page-template-template_homepage{
+    .header{
+      padding-bottom: 0;
+    }
+  }
+
   .s1_homepage{
-    margin-top: 8rem;
-    padding: 0;
-    height: auto;
-      .s1_homepage__slider__slide {
-        padding: 4rem 2rem 15rem;
-      }
-
-      .swiper-pagination{
-        flex-direction: row;
-        align-items: center;
-        left: 0;
-        right: 0;
-        justify-content: center;
-          .swiper-pagination-bullet{
-            margin-bottom: 0;
-            margin-left: 1rem;
-              &:first-child{
-                margin-left: 0;
-              }
+    margin-top: 10rem;
+    height: 56rem;
+    min-height: unset;
+      &__content{
+        padding: 0 2rem;
+          &--title{
+            font-size: 6rem;
+            text-align: center;
           }
       }
   }
 
- 
   .s2_homepage{
-    padding: 0;
-      &--title{
-        margin-top: 9.3rem;
-        margin-bottom: 6.1rem;
-      }
-      &__content{
-        flex-direction: column;
-          &__block{
-            width: 100%;
-            padding: 4rem !important;
-            margin-top: 0 !important;
-              &--title{
-                margin-top: 2.7rem;
-              }
-              img{
-                height: 29.2rem !important;
-              }
-          }
-      }
-  }
-
-
-  .s3_homepage{
-    padding: 0;
-    margin-top: 6rem;
-    margin-bottom: 0;
-      .banner{
-        padding: 6rem 2rem;
-          h2{
-            width: 100%;
-            margin-bottom: 4rem;
-          }
-      }
-  }
-
-
-  .s4_homepage{
-    height: 50rem;
-    padding: 6rem 2rem;
-  }
-
-
-  .s5_homepage{
+    width: 100%;
     padding: 0 2rem;
-    margin-top: 15rem;
-    margin-bottom: 8rem;
-      &--exp{
-        margin: 0 auto;
-        margin-top: 8rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+      &__grid{
+        grid-template-columns: 1fr;
+        gap: 2.4rem;
       }
-      &--img{
-        display: none;
-      }
-      &__top{
-        flex-direction: column;
-      }
-      &__content{
-        width: 100%;
-        padding-left: 0;
-        margin-right: 0;
-          &::after{
-            top: -9rem;
-            left: -8rem;
-          }
-          &::before{
-            display: none;
-          }
-          &--title, &--text{
-            padding-left: 0;
-          }
-          .button-2{
-            margin-left: 0;
-          }
-      }
-      &--img{
-        
+
+      &__categories{
+        margin-top: 6rem;
       }
   }
 
-
-  .s6_homepage{
-
-  }
 }

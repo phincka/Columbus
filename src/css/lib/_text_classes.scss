@@ -5,6 +5,11 @@
 .tit-50{
   @include fontStyle(var(--white), 5rem, 700);
   line-height: 8rem;
+
+    @media screen and (max-width: 800px) {
+      font-size: 3.6rem;
+      line-height: 5rem;
+    }
 }
 
 
@@ -24,6 +29,12 @@
   line-height: 3.5rem;
 }
 
+.txt-20{
+  @include fontStyle(var(--black), 2rem, 400);
+  line-height: 3.3rem;
+}
+
+
 .txt-16{
   @include fontStyle(var(--black), 1.6rem, 300);
   line-height: 3.5rem;
@@ -31,7 +42,7 @@
 
 .txt-14{
   @include fontStyle(var(--black), 1.4rem, 400);
-  line-height: 2.4rem;
+  line-height: 2.37rem;
 }
 
 .txt-12{

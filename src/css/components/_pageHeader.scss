@@ -1,7 +1,7 @@
 .pageHeader{
   width: 176rem;
-  margin: -6.8rem auto 0;
-  padding: 4.4rem 8.1rem;
+  margin: -6.2rem auto 0;
+  padding: 3.5rem 8.5rem;
   background-color: var(--blue);
   border-radius: 1rem;
   position: relative;   
@@ -41,6 +41,8 @@
 
 @media screen and (max-width: 800px) {
   .pageHeader{
- 
+    width: calc(100% - 4rem);
+    margin-top: 13rem;
+    padding: 3.5rem 3rem;
   }
 }

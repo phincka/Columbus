@@ -12,10 +12,10 @@ import AjaxProductLoad from './components/ajaxProductLoad'
 
 
 // new Animations().animation()
-// new Cookies().cookies()
+new Cookies().cookies()
 // new FromValidations().init()
 new Menu().init()
-// new PageLoader().loader()
+new PageLoader().loader()
 new SwiperSliders().init()
 // new GoogleMaps().init()
 // new RealizationsToggle().init()
@@ -46,8 +46,31 @@ if (document.querySelector('.gallery')) {
 //   event.preventDefault();
 // });
 
+const comment = document.querySelector('#comment')
+if (comment){
+  comment.placeholder = "Napisz swoją opinię"
+}
 
-document.querySelector('#comment').placeholder = "Napisz swoją opinię"
-document.querySelector('#author').placeholder = "Imię / Nazwisko"
-document.querySelector('#email').placeholder = "E-mail"
-document.querySelector('#submit').value = "Opublikuj"
+const author = document.querySelector('#author')
+if (author) {
+  author.placeholder = "Imię / Nazwisko"
+}
+
+const email = document.querySelector('#email')
+if (email) {
+  email.placeholder = "E-mail"
+}
+
+const submit = document.querySelector('#submit')
+if (submit) {
+  submit.value = "Opublikuj"
+}
+
+
+const tripForm = document.querySelector('.s1_trip__content__form')
+if (tripForm) {
+  const tripTitle = tripForm.getAttribute('data-tripTitle')
+
+  document.querySelector('#textarea').placeholder = `Zapytanie o wycieczkę:  "${tripTitle}"`
+
+}

@@ -9,7 +9,7 @@ $context['post'] = $timber_post;
 $args = array(
   'post__in'  => $timber_post->ID,
   'post_type' => 'trips',
-  'status'    => 'approve'
+  'status' => 'approve',
 );
 $opinions = get_comments( $args );
 

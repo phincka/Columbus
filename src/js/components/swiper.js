@@ -35,10 +35,34 @@ export default class SwiperSliders {
    
   }
 
-  
+  reviewsList() {
+    var reviewsList = new Swiper('.reviews__list__slider', {
+      spaceBetween: 24,
+      slidesPerView: 1,
+      freeMode: false,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: false,
+      },
+      breakpoints: {
+        800: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      }
+    });
+    
+
+
+  }
+
 
   init(){
     document.querySelector('.s1_homepage__slider') ? this.homepageSlider() : null
     document.querySelector('.productGallery-top') ? this.swiperProductGallery() : null
+    document.querySelector('.reviews__list__slider') ? this.reviewsList() : null
   }
 }
+

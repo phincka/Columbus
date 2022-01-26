@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+{% block content %}
+
+{% include "/templates/partial/pageHeader.twig" with {'title': term.name} %}
+
+<section class="s1_trips">
+  <div class="s1_trips__filters">
+  </div>
+
+  <div class="s1_trips__list">
+    {% for single in posts %}
+      {% include "/templates/partial/trip.twig" with {'trip': single} %}
+    {% endfor %}
+  </div>
+
+</section>
+
+{% endblock %}

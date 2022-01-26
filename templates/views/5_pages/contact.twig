@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 {% block content %}
 
-{% include "/templates/partial/pageHeader.twig" %}
+{% include "/templates/partial/pageHeader.twig" with {'title': acf.pageHeader_title}  %}
 
 
 <section class="s1_contact">

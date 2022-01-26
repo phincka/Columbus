@@ -3,8 +3,11 @@
 
 
 <section class="s1_homepage">
-  <img class="s1_homepage--img" src="{{acf.s1_img.url}}" alt="{{acf.s1_img.alt}}">
-
+  {% include "templates/partial/image.twig" with {
+    img: acf.s1_img,
+    class: 's1_homepage--img',
+  } %}
+  
   <div class="s1_homepage__content">
     <h1 class="s1_homepage__content--title tit-70">{{acf.s1_title}}</h1>
 
@@ -25,13 +28,54 @@
 
   <div class="s2_homepage__grid">
     {% for post in posts %}
-      <div class="single_trip_ver">
-        <h2 class="single_trip_ver--title">{{post.post_title}}</h2>
-        <p class="single_trip_ver--text txt-14">{{post.text}}</p>
+      <a href="{{get_permalink(trip.ID)}}" class="single_trip_ver">
+        <h2 class="single_trip_ver--title txt-22"><b>{{post.post_title}}</b></h2>
+        <div class="single_trip_ver__tax">
+          Wycieczki szkolne    •     2 dniowe
+        </div>
+        <p class="single_trip_ver--text txt-14">{{post.text_title}}</p>
 
-        <img class="single_trip_ver--img" src="{{get_the_post_thumbnail_url(post.ID)}}" alt="{{post.post_title}}">
-      </div>
+        <img class="single_trip_ver--img" src="{{get_field('gallery', post.ID)[0].url}}" alt="{{get_field('gallery', post.ID)[0].alt}}">
+
+        <div class="single_trip_ver__info">
+          <div class="single_trip_ver__info__single trip__info__content__single">
+            <div class="bottomWrap">
+              <span class="trip__info__content__single--title txt-14">Cena:&nbsp;</span>
+              {% if post.price_2 %}
+                <span class="trip__info__content__single--value pirceDisabled txt-14">{{post.price}}</span>
+              {% else %}
+                <span class="trip__info__content__single--value txt-14">{{post.price}}</span>
+              {% endif %}
+            </div>
+            <span class="trip__info__content__single--special">{{post.price_2}}</span>
+          </div>
+
+          <p class="single_trip_ver__info__single topWrap">
+            <span class="trip__info__content__single--title txt-14">Ilość dni:&nbsp;</span>
+            <span class="trip__info__content__single--value">{{post.days}}</span>
+          </p>
+        </div>
+        
+        {% if get_permalink(trip.ID) %}
+          <button class="btn-1" >
+            <span class="btn-1--text">sprawdź ofertę</span>
+          </button> 
+        {% endif %}
+      </a>
     {% endfor %}
+  </div>
+
+
+  <div class="s2_homepage__categories">
+    <h2 class="s2_homepage__categories--title txt-20"><b>Sprawdź inne wycieczki <span>według kategorii:</span></b></h2>
+
+    <div class="s2_homepage__categories__wrap">
+      {% for term in terms %}
+        <a class="btn-1" href="{{get_term_link(term.term_id)}}">
+          <span class="btn-1--text">{{term.name}}</span>
+        </a>
+      {% endfor %}
+    </div>
   </div>
 
 </section>

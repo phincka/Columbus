@@ -25,6 +25,10 @@
         }
         .btn-1{
           margin-top: 3.7rem;
+          padding: 1rem 1.8rem;
+            span{
+              font-size: 1.2rem;
+            }
         }
     }
 
@@ -77,7 +81,42 @@
 
 
 @media screen and (max-width: 800px) {
-  .banner{
-   
+  .trip{
+    padding: 3.2rem 2.4rem;
+    flex-direction: column;
+      &--img{
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+      }
+
+      &__content, &__info{
+        width: 100%;
+      }
+
+      &__info{
+        margin-left: 0;
+        margin-top: 2.4rem;
+          &__content{
+            flex-direction: row-reverse;
+            gap: 2.4rem;
+              &__single{
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+                border: none !important;
+                  .bottomWrap{
+                    margin-top: 0;
+                  }
+              }
+          }
+      }
+
+      &__content{
+        padding-right: 0;
+        border: none;
+          .btn-1{
+            margin-left: auto;
+          }
+      }
   }
 }
