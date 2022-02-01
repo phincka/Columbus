@@ -33,3 +33,20 @@ function postTypes()
 
 }
 add_action('init', 'postTypes', 0);
+
+
+
+function sort_terms_hierarchically(Array &$cats, Array &$into, $parentId = 0)
+{
+    foreach ($cats as $i => $cat) {
+        if ($cat->parent == $parentId) {
+            $into[$cat->term_id] = $cat;
+            unset($cats[$i]);
+        }
+    }
+
+    foreach ($into as $topCat) {
+        $topCat->children = array();
+        sort_terms_hierarchically($cats, $topCat->children, $topCat->term_id);
+    }
+}

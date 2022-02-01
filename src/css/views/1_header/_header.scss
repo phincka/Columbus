@@ -87,28 +87,31 @@
                   font-size: 1.8rem;
 
                   transition: all .2s;
-                    &::after{
-                      content: '';
-                      width: .8rem;
-                      height: .8rem;
-                      border-radius: 100%;
-
-                      background-color: var(--pcolor);
-                      position: absolute;
-                      top: 0;
-                      bottom: 0;
-                      left: -3.1rem;
-                      margin: auto 0;
-
-                      display: none;
+                    a{
+                      position: relative;
+                        &::after{
+                          content: '';
+                          width: .8rem;
+                          height: .8rem;
+                          border-radius: 100%;
+    
+                          background-color: var(--pcolor);
+                          position: absolute;
+                          top: 0;
+                          bottom: 0;
+                          left: -3.1rem;
+                          margin: auto 0;
+                        }
                     }
                     &:hover{
                       color: var(--pcolor);
                     }
                     &:first-child{
                       margin-left: 0;
-                        &::after{
-                          display: none;
+                        a{
+                          &::after{
+                            display: none;
+                          }
                         }
                     }
 

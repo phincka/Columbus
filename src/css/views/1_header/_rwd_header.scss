@@ -97,8 +97,10 @@
                     color: var(--white);
 
                     position: relative;
-                      &::after{
-                        display: none;
+                      a{
+                        &::after{
+                          display: none;
+                        }
                       }
                       &:last-child{
                         margin-bottom: 0;

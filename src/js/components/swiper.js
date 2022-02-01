@@ -3,10 +3,7 @@ export default class SwiperSliders {
     var swiper = new Swiper(".s1_homepage__slider", {
       slidesPerView: 1,
       loop: true,
-      navigation: {
-        nextEl: ".next",
-        prevEl: ".prev",
-      },
+      slidesPerView: 1,
     });
   }
 

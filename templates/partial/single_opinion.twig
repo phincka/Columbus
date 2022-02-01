@@ -1,9 +1,12 @@
-<article class="single_opinion">
+<article class="single_opinion" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-offset="400">
   <div class="single_opinion--rating review-rating">
     {{fn('ic_ic_rev_rating', opinion.comment_ID)}}
   </div>
   <h3 class="single_opinion--title txt-22"><b>{{fn('get_the_title', opinion.comment_post_ID)}}</b></h3>
-  <h4 class="single_opinion--term">Wycieczki szkolne</h4>
+
+  {% if fn('getMainTax', opinion.comment_post_ID)[0] %}
+    <a class="single_opinion--term txt-14" href="{{get_term_link(fn('getMainTax', opinion.comment_post_ID)[0].slug, 'trips-category')}}">{{fn('getMainTax', opinion.comment_post_ID)[0].name}}</a>
+  {% endif %}
 
   <img class="single_opinion--img" src="{{asset('quote.svg')}}" alt="img">
   <p class="txt-14">{{opinion.comment_content}}</p>

@@ -23,7 +23,9 @@ require(__DIR__ . '/functions/translations.php'); //! Multi language translation
 // require(__DIR__ . '/functions/woocommerce.php'); //! Woocommerce functions
 
 
-
+function getMainTax($postID){
+  return $term = wp_get_post_terms($postID, 'trips-category', array( 'parent' => 0 ));
+}
 
 
 

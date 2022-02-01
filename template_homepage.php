@@ -21,6 +21,7 @@ $args = array(
 $context['posts'] = new Timber\PostQuery($args);
 
 
+
 $args2 = array(
   'post_type' => 'trips',
   'status'    => 'approve',
@@ -30,6 +31,7 @@ $args2 = array(
 );
 $opinions = get_comments( $args2 );
 $context['opinions'] = $opinions;
+
 
 $taxArgs = array(
   'taxonomy' => 'trips-category',

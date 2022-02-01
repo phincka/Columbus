@@ -32,7 +32,7 @@
 
 
     <div class="header__main__right">
-      <p class="txt-16">Informacje i rezerwacje</p>
+      <p class="txt-16">{{pll__('info')}}</p>
       {% if options.contact_tel %}
         <ul class="header__main__right__tel">
           {% for single in options.contact_tel %}
@@ -71,18 +71,12 @@
         <a class="footer__bottom__info--text txt-14" rel="noopener" rel="nofollow" target="_blank" href="{{home_url()}}">©{{date('Y')}}&nbsp;{{options.seo_title}}</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;
         <a class="footer__bottom__info--text txt-14 privacy" href="{{fn('get_privacy_policy_url')}}">{{fn('pll_e', 'privacy')}}</a>
        </p>
-      <a class="footer__bottom__info--text txt-14" rel="noopener" rel="nofollow" target="_blank" href="https://hincka.pl/">{{fn('pll_e', 'ws_info')}}</a>
     </div>
 
   </div>
 
   
   {% include "/templates/partial/cookies.twig" %}
-
-  <script>
-    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-    ':35729/livereload.js?snipver=1"></' + 'script>')
-  </script>
 </footer>
 
 

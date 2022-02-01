@@ -2,20 +2,28 @@
 {% block content %}
 
 
-<section class="s1_homepage">
-  {% include "templates/partial/image.twig" with {
-    img: acf.s1_img,
-    class: 's1_homepage--img',
-  } %}
-  
-  <div class="s1_homepage__content">
-    <h1 class="s1_homepage__content--title tit-70">{{acf.s1_title}}</h1>
+<section class="s1_homepage" data-aos="flip-up" data-aos-easing="linear" data-aos-delay="1400">
+  <div class="s1_homepage__slider swiper-container">
+    <div class="swiper-wrapper">
+      {% for single in terms %}
+        <div class="swiper-slide">
+          {% include "templates/partial/image.twig" with {
+            img: get_field('img', single),
+            class: 's1_homepage--img',
+          } %}
+          
+          <div class="s1_homepage__content">
+            <h1 class="s1_homepage__content--title tit-70">{{single.name}}</h1>
 
-    {% if acf.s1_button %}
-      <a class="btn-1" target="{{acf.s1_button.target}}" href="{{acf.s1_button.url}}">
-        <span class="btn-1--text">{{acf.s1_button.title}}</span>
-      </a> 
-    {% endif %}
+            {% if get_term_link(single) %}
+              <a class="btn-1" href="{{get_term_link(single)}}">
+                <span class="btn-1--text">{{pll__('check_offer')}}</span>
+              </a> 
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -28,12 +36,23 @@
 
   <div class="s2_homepage__grid">
     {% for post in posts %}
-      <a href="{{get_permalink(trip.ID)}}" class="single_trip_ver">
-        <h2 class="single_trip_ver--title txt-22"><b>{{post.post_title}}</b></h2>
-        <div class="single_trip_ver__tax">
-          Wycieczki szkolne    •     2 dniowe
-        </div>
-        <p class="single_trip_ver--text txt-14">{{post.text_title}}</p>
+      <a href="{{get_permalink(trip.ID)}}" class="single_trip_ver" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-offset="400">
+        <header class="single_trip_ver__header">
+          <h2 class="single_trip_ver--title txt-22"><b>{{post.post_title}}</b></h2>
+          <div class="single_trip_ver__tax">
+            {% if fn('getMainTax', post.ID)[0] %}
+              <p href="{{get_term_link(fn('getMainTax', post.ID)[0].slug, 'trips-category')}}">{{fn('getMainTax', post.ID)[0].name}}</p>
+            {% endif %}
+
+            <p class="single_trip_ver--text txt-14">
+              {% if post.text|length < 74 %}
+                {{post.text}}
+              {% else %}
+                {{post.text|slice(0, 74) }}...
+              {% endif %}
+            </p>
+          </div>
+        </header>
 
         <img class="single_trip_ver--img" src="{{get_field('gallery', post.ID)[0].url}}" alt="{{get_field('gallery', post.ID)[0].alt}}">
 
@@ -58,7 +77,7 @@
         
         {% if get_permalink(trip.ID) %}
           <button class="btn-1" >
-            <span class="btn-1--text">sprawdź ofertę</span>
+            <span class="btn-1--text">{{pll__('check_offer')}}</span>
           </button> 
         {% endif %}
       </a>
@@ -67,7 +86,7 @@
 
 
   <div class="s2_homepage__categories">
-    <h2 class="s2_homepage__categories--title txt-20"><b>Sprawdź inne wycieczki <span>według kategorii:</span></b></h2>
+    <h2 class="s2_homepage__categories--title txt-20">{{pll__('check_other')}}</h2>
 
     <div class="s2_homepage__categories__wrap">
       {% for term in terms %}

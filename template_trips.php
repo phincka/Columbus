@@ -28,15 +28,15 @@ $args = array(
 $context['posts'] = new Timber\PostQuery($args);
 
 
-$categories = array();
-foreach (get_terms('category') as $category) {
-  $url = get_term_link($category->term_id, 'category');
-  $singleCategory = array($category->count, $category->name, $url);
-  
-  array_push($categories, $singleCategory);
-}
 
-$context['categories'] = $categories;
+
+$categories = get_terms('trips-category', array('hide_empty' => false));
+$categoryHierarchy = array();
+sort_terms_hierarchically($categories, $categoryHierarchy);
+
+$context['categoryHierarchy'] = $categoryHierarchy;
+
+
 
 
 Timber::render( array( 

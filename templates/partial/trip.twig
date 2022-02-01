@@ -1,7 +1,11 @@
-<section class="trip">
+<section class="trip" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-offset="300">
   <img class="trip--img" src="{{get_field('gallery')[0].url}}" alt="{{get_field('gallery')[0].alt}}">
 
   <div class="trip__content">
+    {% if fn('getMainTax', trip.ID)[0] %}
+      <a class="trip__content--tax txt-14" href="{{get_term_link(fn('getMainTax', trip.ID)[0].slug, 'trips-category')}}">{{fn('getMainTax', trip.ID)[0].name}}</a>
+    {% endif %}
+
     <h2 class="trip__content--title txt-22">{{trip.post_title}}</h2>
     <p class="trip__content--text txt-14">
       {% if trip.text|length < 120 %}
@@ -15,14 +19,14 @@
       <div class="trip__info__content">
         <div class="trip__info__content__single">
           <p class="topWrap">
-            <span class="trip__info__content__single--title txt-14">Ilość dni:&nbsp;</span>
+            <span class="trip__info__content__single--title txt-14">{{pll__('days')}}&nbsp;</span>
             <span class="trip__info__content__single--value">{{trip.days}}</span>
           </p>
         </div>
 
         <div class="trip__info__content__single">
           <div class="bottomWrap">
-            <span class="trip__info__content__single--title txt-14">Cena:&nbsp;</span>
+            <span class="trip__info__content__single--title txt-14">{{pll__('price')}}&nbsp;</span>
             {% if trip.price_2 %}
               <span class="trip__info__content__single--value pirceDisabled txt-14">{{trip.price}}</span>
             {% else %}
@@ -37,7 +41,7 @@
 
     {% if get_permalink(trip.ID) %}
       <a class="btn-1" href="{{get_permalink(trip.ID)}}">
-        <span class="btn-1--text">sprawdź ofertę</span>
+        <span class="btn-1--text">{{pll__('check_offer')}}</span>
       </a> 
     {% endif %}
   </div>

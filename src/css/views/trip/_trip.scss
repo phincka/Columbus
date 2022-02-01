@@ -25,8 +25,8 @@
               cursor: pointer;
                 img{
                   width: 100%;
-                  max-height: 100%;
-                  object-fit: contain
+                  height: 100%;
+                  object-fit: cover;
                 }
             }
         }
@@ -88,9 +88,7 @@
 
     &__content{
       width: calc(100% - 76.1rem);
-        .breadcrumbs{
-          display: flex;
-        }
+       
         .tripCard{
           padding: 1.2rem 4rem 4rem 4rem;
           background-color: var(--white);

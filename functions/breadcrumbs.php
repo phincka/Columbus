@@ -8,7 +8,7 @@ function the_breadcrumb() {
     $stepIcon = '<span class="stepIcon"></span>';
 
     // Start the breadcrumb with a link to your homepage
-    echo '<div class="breadcrumbs text-16">';
+    echo '<ul class="breadcrumbs txt-12">';
 
 
     if (is_tax('trips-category')) {
@@ -42,23 +42,17 @@ function the_breadcrumb() {
         $tmpTerm = $term;
         $tmpCrumbs = array();
 
-        echo '<a class="tax" href="' . home_url() . '/produkty"> Produkty </a>';
+        echo '<li><a class="tax" href="' . home_url() . '/"> <&nbsp;&nbsp;Wróć </a></li>';
         echo $stepIcon;
 
         for ($i=0; $i < count($terms); $i++) { 
-            $crumb = '<a href="' . get_term_link($terms[$i], get_query_var('taxonomy')) . '">' . $terms[$i]->name . '</a>';
+            $crumb = '<li><a href="' . get_term_link($terms[$i], get_query_var('taxonomy')) . '">' . $terms[$i]->name . '</a></li>';
             array_push($tmpCrumbs, $stepIcon,  $crumb);
         }
 
-        while ($tmpTerm->parent > 0){
-            $tmpTerm = get_term($tmpTerm->parent, get_query_var("taxonomy"));
-            $crumb = '<a href="' . get_term_link($tmpTerm, get_query_var('taxonomy')) . '">' . $tmpTerm->name . '</a>';
-            array_push($tmpCrumbs, $stepIcon,  $crumb);
-        }
         echo implode('', array_reverse($tmpCrumbs));
-        
 
-        echo '<p class="current">'. get_the_title() .'</p>';
+        echo '<li class="current">'. get_the_title() .'</li>';
     }
 
 
@@ -91,9 +85,9 @@ function the_breadcrumb() {
 
         echo implode('', array_reverse($tmpCrumbs));
 
-        echo '<p class="current">'. get_the_title() .'</p>';
+        echo '<li class="current">'. get_the_title() .'</li>';
     }
 
 
-    echo '</div>';
+    echo '</ul>';
 }

@@ -5,6 +5,53 @@
 
 <section class="s1_trips">
   <div class="s1_trips__filters">
+    {% if categoryHierarchy %}
+      <div class="s1_trips__filters__taxonomyFilter">
+        {% for first in categoryHierarchy %}
+          <ul class="tree firstLv">
+            <li id="{{first.slug}}" class="firstLv__li">
+              <label class="firstLv__li--label" for="{{first.slug}}">
+                <a href="{{get_term_link(first.term_id)}}">{{first.name}}</a>
+              </label>
+              
+              <input  id="{{first.slug}}" value="" type="checkbox">
+              {% if first.children %}
+                <ul class="secondaryLv">
+                  {% for secondary in first.children %}
+                    <li id="{{secondary.slug}}" class="secondaryLv--li">
+                      <label for="{{secondary.slug}}">
+                        <a href="{{get_term_link(secondary.term_id)}}">{{secondary.name}}</a>
+                      </label>
+                      <input id="{{secondary.slug}}" value="" type="checkbox">
+                        {% if secondary.children %}
+                          <ul class="thirdLv">
+                            {% for third in secondary.children %}
+
+                              <li id="{{third.slug}}" class="thirdLv--li">
+                                <a href="{{get_term_link(third.term_id)}}">
+                                  <label for="{{third.slug}}">{{third.name}}</label>
+                                  <input id="{{third.slug}}" value="" type="checkbox">
+                                </a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          </ul>
+        {% endfor %}
+      
+        <a class="reset" href="{{home_url()}}/oferta">
+          <span class="reset--text">wyzeruj kategorie</span>
+          <img class="reset--icon" src="{{asset('remove.svg')}}" alt="">
+        </a>
+      </div>
+    {% endif %}
+
+
     {% include "/templates/partial/banner.twig" with {'title': acf.baner_title, 'button': acf.baner_button} %}
   </div>
 

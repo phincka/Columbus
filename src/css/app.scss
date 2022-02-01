@@ -16,6 +16,7 @@
 @import 'components/catalog';
 @import 'components/opinions';
 @import 'components/form.scss';
+@import 'components/breadcrumbs.scss';
 
 
 /* Views */
@@ -45,6 +46,3 @@
 
 @import './views/gallery/gallery';
 @import './views/gallery/rwd_gallery';
-
-@import './views/realizations/realizations';
-@import './views/realizations/rwd_realizations';

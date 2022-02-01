@@ -19,8 +19,15 @@
 
       padding-right: 3.7rem;
       border-right: 1px solid var(--blue2);
+        &--tax{
+          color: var(--grey);
+          transition: .2s;
+            &:hover{
+              color: var(--pcolor);
+            }
+        }
         &--title{
-          margin-top: 3.3rem;
+          margin-top: .3rem;
           margin-bottom: 2.3rem;
         }
         .btn-1{

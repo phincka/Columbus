@@ -6,7 +6,7 @@
 
 <section class="s1_gallery gallery">
   {% for item in acf.s1_gallery %}
-    <a data-lbxp class="s1_gallery__single" href="{{item.url}}">
+    <a data-lbxp class="s1_gallery__single" href="{{item.url}}" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-offset="300">
       <img class="s1_gallery__single--img" src="{{item.url}}" alt="{{item.alt}}">
     </a>
   {% endfor %}

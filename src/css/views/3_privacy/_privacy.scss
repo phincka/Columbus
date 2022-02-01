@@ -1,13 +1,17 @@
 .s1_universal{
-  width: 128rem;
+  width: 160rem;
   margin: 0 auto;
-  margin-top: 11.8rem;
-  margin-bottom: 13.8rem;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
     &__header{
-      margin-bottom: 9.3rem;
+      margin-bottom: 6.4rem;
     }
-		&--editor{
-			@include wysiwyg(2rem, var(--purple));
+
+    &--title{
+      color: var(--black)
+    }
+		&--wysiwyg{
+			@include wysiwyg(1.6rem, var(--pcolor));
       margin: 0 auto;
         strong{
           font-weight: 700;

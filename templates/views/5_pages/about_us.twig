@@ -18,7 +18,7 @@
 
 <section class="s2_aboutUs">
   {% for single in acf.s2_repeat %}
-    <div class="s2_aboutUs__single">
+    <div class="s2_aboutUs__single" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-offset="300">
       {% include "templates/partial/image.twig" with {
         img: single.img,
         class: 's2_aboutUs__single--img',

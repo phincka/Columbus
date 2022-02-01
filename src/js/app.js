@@ -1,27 +1,16 @@
 import Animations from './components/animations'
 import Cookies from './components/cookies'
-import FromValidations from './components/formValidations'
 import Menu from './components/menu'
 import PageLoader from './components/pageLoader'
 import SwiperSliders from './components/swiper'
-import GoogleMaps from './components/GoogleMaps'
-import RealizationsToggle from './components/realizationsToggle'
-import Video from './components/video'
-import AjaxProductLoad from './components/ajaxProductLoad'
 
 
 
-// new Animations().animation()
+new Animations().animation()
 new Cookies().cookies()
-// new FromValidations().init()
 new Menu().init()
 new PageLoader().loader()
 new SwiperSliders().init()
-// new GoogleMaps().init()
-// new RealizationsToggle().init()
-// new Video().init()
-// new AjaxProductLoad().init()
-
 
 
 $(document).ready(function () {
@@ -32,19 +21,6 @@ if (document.querySelector('.gallery')) {
   new LiteBoxPro('.gallery');
 }
 
-// $('.js-panel-toggle').on('click', 'button', function(event) {
-//   // Get panel to be opened
-//   var target = $(this).data('target');
-//   // Make all panels inactive
-//   $('.panel-toggle').removeClass('panel-toggle--active');
-//   $('.panel').hide();
-  
-//   // Activate clicked panel
-//   $(this).addClass('panel-toggle--active');
-//   $(target).show();
-//   // Prevent default click event
-//   event.preventDefault();
-// });
 
 const comment = document.querySelector('#comment')
 if (comment){
@@ -67,10 +43,17 @@ if (submit) {
 }
 
 
+const name = document.querySelector('#name')
+if (name) {
+  name.placeholder = "Imię / Nazwisko / Szkoła"
+}
+
 const tripForm = document.querySelector('.s1_trip__content__form')
 if (tripForm) {
   const tripTitle = tripForm.getAttribute('data-tripTitle')
 
   document.querySelector('#textarea').placeholder = `Zapytanie o wycieczkę:  "${tripTitle}"`
-
 }
+
+console.log("%c2022 - Realizacja Paweł Hincka & Karolina Kotowska", "color: white; font-family:sans-serif; font-size: 20px");
+console.log("%cwww.hincka.pl", "color: white; font-family:sans-serif; font-size: 16px");
